@@ -1,0 +1,40 @@
+{
+  "task": "binary rare-condition ECG augmentation (strict Normal vs LQT; strict Normal vs WPW)",
+  "ptbxl_in_domain": {
+    "positive_LQT": {
+      "records": 116,
+      "patients": 107,
+      "note": "conf>0; 1 negated record in folder excluded"
+    },
+    "positive_WPW": {
+      "records": 79,
+      "patients": 62,
+      "note": "conf>0; clean"
+    },
+    "negative_NORM_strict": {
+      "records": 9494,
+      "patients": 8883,
+      "note": "true NORM (conf>0) excluding LQT\u222aWPW patients (6 LQT + 7 WPW overlap removed)"
+    },
+    "patient_disjoint": {
+      "LNGQT_train_test_overlap": 0,
+      "WPW_train_test_overlap": 0,
+      "NORM_train_test_overlap": 0,
+      "split_seed": 42
+    }
+  },
+  "chapman_out_of_domain": {
+    "negative_strict_sinus": {
+      "records": 5908,
+      "rule": "SNOMED 426783006 (sinus rhythm) as the ONLY #Dx code"
+    },
+    "positive_LQT": {
+      "records": 394,
+      "note": "ALL multi-label (111975006 co-occurs with other diagnoses) \u2014 CAVEAT"
+    },
+    "positive_WPW": {
+      "records": 72,
+      "note": "ALL multi-label (74390002 co-occurs with rhythm codes) \u2014 CAVEAT"
+    }
+  }
+}

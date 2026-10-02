@@ -1,0 +1,21 @@
+{
+  "condition": "LQT",
+  "arm": "rep_seed3_node88",
+  "simulator": "[PROJECT_ROOT]/artifacts/lngqt_ecg/runs/rep/seed3/candidates/script_088.py",
+  "representation_search_score": 0.5936987696299816,
+  "n_synthetic": 300,
+  "generation_seed": 42,
+  "classifier_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "encoder": "ECGFounder 12-lead (two observed leads, ten zero-padded)",
+  "id_auprc_mean": 0.403862159940351,
+  "id_auroc_mean": 0.9738474111821546,
+  "ood_auprc_mean": 0.7474710767069086,
+  "ood_auroc_mean": 0.8888171935841964,
+  "runtime_s": 27.99051022529602
+}
