@@ -1,10 +1,7 @@
-# SimAuthor supplementary code and audit artifacts
+# SimAuthor supplementary code and artifacts
 
-This directory contains the compact code-and-trace release accompanying the
-anonymous submission. It is intended to make the authoring harness, the main
-search trajectories, and the paper's validation analyses inspectable without
-shipping reference recordings, generated waveform pools, model weights, or
-cluster logs.
+This directory contains the compact code-and-trace release. It is intended to make the authoring harness, the main
+search trajectories, and the paper's validation analyses inspectable.
 
 ## Start here
 
@@ -42,8 +39,7 @@ Primary three-seed trajectories for Score-only PUCT and Text-Opt.
 Independent one-shot sampling is a flat pool rather than a tree, so its ordered
 380-proposal score files are stored under `one_shot/`; the first 100 entries are
 the pool used in the main comparison, and all 380 support the token-matched
-appendix analysis. Candidate programs are intentionally omitted from baseline
-traces.
+appendix analysis. 
 
 ### `experiments/component_ablations/`
 
@@ -73,19 +69,4 @@ not included.
 ### `analysis/`
 
 The audit prompt and final labelled results used for the
-structural-versus-parameter revision analysis. Intermediate extraction records,
-model responses, and raw diffs are omitted because they can be regenerated from
-the core candidates.
-
-## Deliberate omissions
-
-This preliminary bundle does not include `run_config.json`, non-core candidate
-programs, patient/reference recordings, generated signal pools, learned-model
-weights, embedding caches, virtual environments, API credentials, or Slurm
-`.out`/`.err` files. External model checkpoints and data access instructions
-will be documented separately.
-
-Absolute paths in stored artifacts have been anonymized with placeholders such
-as `[PROJECT_ROOT]`, `[DATA_ROOT]`, and `[OPERA_ROOT]`. Candidate programs are
-preserved as authored audit artifacts; replace their output paths before
-executing them in a new environment.
+structural-versus-parameter revision analysis. 
