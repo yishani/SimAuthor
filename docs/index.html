@@ -24,7 +24,7 @@
       <a href="#overview">Overview</a>
       <a href="#explore">Explore</a>
       <a href="#results">Results</a>
-      <a href="#code">Code</a>
+      <a href="https://github.com/yishani/SimAuthor">Code</a>
       <a href="#citation">Citation</a>
     </nav>
   </div>
@@ -77,27 +77,27 @@
     <h2>Overview</h2>
     <div class="split" id="abstract">
     <div class="split-text">
-      <p>Writing a scientific simulator with a foundation model takes repeated revision against scarce real data. SimAuthor keeps every program it writes, chooses what to revise by score, decides how to revise from a structured discrepancy report, and reuses edits that worked.</p>
-      <p>On six biomedical tasks it beats score-only search (PUCT) on all six at 100 attempts. Its simulators improve on unseen recordings, transfer to independent encoders on three of four tasks and help out-of-distribution ECG classification. Most of the gain is structural: 111 of 138 audited revisions change program structure and carry 86.1% of the improvement.</p>
+      <p>A scientific simulator is a program that encodes how mechanisms generate an observable signal. With no exact test of correctness, it has to be revised against a few real recordings. SimAuthor keeps every simulator it writes, chooses what to revise by score and how to revise from a discrepancy report, and reuses edits that worked.</p>
+      <p>On six biomedical tasks it beats score-only search on all six and reaches the best final score on five. Most of the gain is structural: 111 of 138 audited revisions change program structure, accounting for 86.1% of the signed improvement.</p>
     </div>
     <figure class="split-fig">
       <img src="assets/fig/splash.jpg" alt="Overview: LLM prior, zero-shot simulator, authoring loop and authored simulator for COPD." loading="lazy" width="1800" height="777">
-      <figcaption><b>Figure 1.</b> From LLM prior knowledge to an executable simulator, using only scarce real data as feedback.</figcaption>
+      <figcaption><b>Figure 1.</b> SimAuthor turns LLM prior knowledge into executable simulator code when exact verification is unavailable and feedback comes only from scarce real data.</figcaption>
     </figure>
     </div>
 
     <div class="split reverse" id="method">
     <figure class="split-fig">
       <img src="assets/fig/harness.jpg" alt="The SimAuthor authoring harness" loading="lazy" width="1800" height="563">
-      <figcaption><b>Figure 2.</b> The orchestrator selects by score; the refiner revises with the blueprint, discrepancy report and mechanism library.</figcaption>
+      <figcaption><b>Figure 2.</b> A search orchestrator selects simulator candidates based on numerical scores, while the refiner updates them using the scientific blueprint, discrepancy report, and mechanism library.</figcaption>
     </figure>
     <div class="split-text">
       <h3>Method</h3>
       <ol class="steps">
-        <li><b>Select</b> a parent from the whole pool using its rank score plus an exploration bonus (flat PUCT).</li>
-        <li><b>Refine</b> it with one focused edit, guided by its discrepancy report, comparison figure, the blueprint and recent mechanisms.</li>
-        <li><b>Evaluate</b> the child: run it and score its 100 outputs against the reference recordings.</li>
-        <li><b>Remember</b> edits that gain at least 0.02 by adding them to the mechanism library.</li>
+        <li><b>Evaluate</b> each program against the real recordings, giving a score and a discrepancy report.</li>
+        <li><b>Select</b> a parent by score with flat PUCT.</li>
+        <li><b>Refine</b> it with one focused edit, guided by its report, a scientific blueprint and recent mechanisms.</li>
+        <li><b>Accumulate</b> improving edits as reusable mechanisms.</li>
       </ol>
     </div>
     </div>
@@ -150,7 +150,7 @@
   <section class="block wrap" id="results">
     <h2>Results</h2>
     <h3 id="performance">Search performance</h3>
-    <p class="prose">Best-so-far search score over the archived programs of each 100-attempt run, recomputed from the released traces. Lines show the median-seed run and shading spans the three seeds; Sampling is one pool in fixed proposal order. PUCT score search uses the same selection rule as SimAuthor but shows the refiner only the score, so the gap isolates the effect of the discrepancy report and mechanism library.</p>
+    <p class="prose">Best-so-far search score over 100 authoring attempts, recomputed from the released runs. Lines show the median-seed run and shading spans three seeds; Sampling is a single pool in fixed proposal order. PUCT score search uses the same selection rule as SimAuthor but gives the refiner only the score, so the gap reflects what the refiner is shown rather than how candidates are chosen. SimAuthor uses about 3.8× the tokens of best-of-100 sampling; a token-matched best-of-380 still falls short on all six tasks.</p>
     <div class="tool">
       <div class="tool-bar"><span class="seg" id="res-tabs" role="tablist" aria-label="Task"></span></div>
       <div class="series-legend" id="series-legend"></div>
@@ -174,31 +174,13 @@
         <details class="tbl"><summary>Table</summary><div class="table-scroll"><table class="paper" id="table-rep"></table></div></details>
       </article>
       <article class="gen-card">
-        <h3>New use: classification</h3>
+        <h3>Downstream utility</h3>
         <p class="scope-line">ECG tasks · labelled PTB-XL and Chapman cohorts</p>
         <p class="tcap">AUPRC of a linear probe on frozen ECGFounder features after adding 300 synthetic positives. ID: PTB-XL; OOD: Chapman–Shaoxing. Probe and search share ECGFounder.</p>
         <div class="gen-chart" id="chart-down"></div>
         <details class="tbl"><summary>Table</summary><div class="table-scroll"><table class="paper" id="table-down"></table></div></details>
       </article>
     </div>
-  </section>
-
-  <section class="block wrap" id="code">
-    <h2>Code</h2>
-    <p class="prose">The released simulators need only NumPy and SciPy. Authoring a simulator for your own task needs a model API key, a few dozen real recordings and an evaluator; the repository includes a <a href="https://github.com/yishani/SimAuthor/tree/main/examples/custom_task">template and guide</a>.</p>
-<pre class="term"><button class="copy">Copy</button><span class="c"># install</span>
-pip install "simauthor[audio,llm] @ git+https://github.com/yishani/SimAuthor"
-
-<span class="c"># generate signals with a released simulator (no API key)</span>
-simauthor generate COPD --out samples/copd
-
-<span class="c"># author a simulator for your own task: a few dozen recordings + an evaluator</span>
-export GEMINI_API_KEY=...
-simauthor run --condition "Mitral regurgitation" --modality audio \
-    --ref data/my_recordings --evaluator my_evaluator.py --out runs/mr
-
-<span class="c"># reproduce the paper's tables from the released runs</span>
-git clone https://github.com/yishani/SimAuthor && python SimAuthor/experiments/reproduce.py</pre>
   </section>
 
   <section class="block wrap" id="citation">

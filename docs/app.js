@@ -363,7 +363,7 @@ function updateStatus() {
   }
   if (S.step === run.nodes.length - 1 && S.sel === run.best) {
     const b = run.nodes[run.best];
-    $("#status").innerHTML = `All ${run.attempts} attempts shown. The best program, <b>#${b.id}</b> (${f3(b.score)}), was reached at attempt ${b.attempt} after ${run.lineage.length - 1} improving revisions from S(0) (${f3(run.nodes[0].score)}). Drag the slider to replay the run.`;
+    $("#status").innerHTML = `All ${run.attempts} attempts shown. The best program, <b>#${b.id}</b> (${f3(b.score)}), was reached at attempt ${b.attempt}, ${run.lineage.length - 1} revisions away from S(0) (${f3(run.nodes[0].score)}). Drag the slider to replay the run.`;
     return;
   }
   const p = run.nodes[n.parent], d = n.score - p.score;
@@ -574,7 +574,7 @@ function renderChart() {
   let h = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Best-so-far score by archived program for ${R.key}">`;
   y.ticks(5).forEach((t) => { h += `<line class="gridline" x1="${m.l}" x2="${W - m.r}" y1="${y(t)}" y2="${y(t)}"/><text x="${m.l - 8}" y="${y(t) + 3}" text-anchor="end" style="fill:${css("--muted")};font:12px var(--f-sans)">${t.toFixed(1)}</text>`; });
   x.ticks(5).forEach((t) => { h += `<text x="${x(t)}" y="${H - m.b + 16}" text-anchor="middle" style="fill:${css("--muted")};font:12px var(--f-sans)">${t}</text>`; });
-  h += `<text x="${(m.l + W - m.r) / 2}" y="${H - 6}" text-anchor="middle" style="fill:${css("--muted")};font:13px var(--f-sans)">archived programs (in order)</text>`;
+  h += `<text x="${(m.l + W - m.r) / 2}" y="${H - 6}" text-anchor="middle" style="fill:${css("--muted")};font:13px var(--f-sans)">authoring attempt</text>`;
   h += `<text transform="translate(12 ${(m.t + H - m.b) / 2}) rotate(-90)" text-anchor="middle" style="fill:${css("--muted")};font:13px var(--f-sans)">best search score so far</text>`;
   vis.forEach((s) => { if (s.multi) h += `<path d="${d3.area().x((b) => x(b[0])).y0((b) => y(b[1])).y1((b) => y(b[2])).curve(d3.curveStepAfter)(s.band)}" fill="${s.color}" opacity=".13"/>`; });
   vis.forEach((s) => {
