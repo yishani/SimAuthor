@@ -11,6 +11,7 @@ python experiments/reproduce.py    # recompute Tables 1, 2, 3, 5 and the audit; 
 | Folder | Paper | Contents per run |
 |---|---|---|
 | `main/<TASK>/seed{1,2,3}` | Table 1, Fig. 3: SimAuthor (Gemini 3.1 Pro) | `tree.json`, `mechanism_library.json`, `candidates/script_*.py` (every program) |
+| `main/<TASK>/scientific_blueprint.md` | Appendix: the scientific blueprint written before search, shown to the refiner in all three seeds | one per task |
 | `baselines/puct_score_search/` | Table 1: same search, refiner sees only the score | `tree.json` |
 | `baselines/text_opt/` | Table 1: textual strategy optimization | `tree.json` (with `text_strategy` per node) |
 | `baselines/sampling/<TASK>/results.csv` | Table 1, token-matched analysis: 380 independent proposals; the first 100 are best-of-100 | one row per proposal |
