@@ -124,34 +124,75 @@ function graticule(ctx, w, h, cols, rows, color) {
   for (let i = 1; i < cols; i++) { const x = Math.round(i * w / cols) + .5; ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
   for (let j = 1; j < rows; j++) { const y = Math.round(j * h / rows) + .5; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
 }
-function drawScope(prefix, smp, color) {
-  const [mc, mw, mh] = fit($(`#${prefix}-mel`));
-  mc.imageSmoothingEnabled = true; mc.drawImage(melImage(smp.mel), 0, 0, mw, mh); graticule(mc, mw, mh, 10, 4, "rgba(255,255,255,.14)");
-  const [tc, w, h] = fit($(`#${prefix}-trace`)); graticule(tc, w, h, 10, 2, getComputedStyle($(".band")).getPropertyValue("--grat").trim());
-  const env = smp.env, n = env.length / 2, mid = h / 2;
-  tc.strokeStyle = color; tc.lineWidth = 1.1; tc.shadowColor = color; tc.shadowBlur = 3;
-  tc.beginPath();
-  for (let i = 0; i < n; i++) { const x = i / (n - 1) * w; tc.moveTo(x, mid - env[2 * i + 1] * mid * .92); tc.lineTo(x, mid - env[2 * i] * mid * .92); }
-  tc.stroke();
+const IMG_CACHE = {};
+function heroImage(src, cb) {
+  if (IMG_CACHE[src]) { if (IMG_CACHE[src].complete) cb(IMG_CACHE[src]); else IMG_CACHE[src].addEventListener("load", () => cb(IMG_CACHE[src])); return; }
+  const im = new Image(); im.onload = () => cb(im); im.src = src; IMG_CACHE[src] = im;
 }
-const HERO_SRC = { VSD: "ZCHSound", COPD: "ICBHI 2017" };
-const HERO_DESC = { VSD: "Heart sounds with a ventricular septal defect", COPD: "Lung sounds in COPD" };
+function drawScope(prefix, smp, color, modality) {
+  const mel = $(`#${prefix}-mel`), trace = $(`#${prefix}-trace`);
+  const audio = modality === "audio";
+  trace.style.display = audio ? "" : "none";
+  mel.style.height = audio ? "" : "170px";
+  const [mc, mw, mh] = fit(mel);
+  if (audio) {
+    mc.imageSmoothingEnabled = true; mc.drawImage(melImage(smp.mel), 0, 0, mw, mh); graticule(mc, mw, mh, 10, 4, "rgba(255,255,255,.14)");
+    const [tc, w, h] = fit(trace); graticule(tc, w, h, 10, 2, getComputedStyle($(".band")).getPropertyValue("--grat").trim());
+    const env = smp.env, n = env.length / 2, mid = h / 2;
+    tc.strokeStyle = color; tc.lineWidth = 1.1; tc.shadowColor = color; tc.shadowBlur = 3;
+    tc.beginPath();
+    for (let i = 0; i < n; i++) { const x = i / (n - 1) * w; tc.moveTo(x, mid - env[2 * i + 1] * mid * .92); tc.lineTo(x, mid - env[2 * i] * mid * .92); }
+    tc.stroke();
+    return;
+  }
+  mc.fillStyle = "#000"; mc.fillRect(0, 0, mw, mh);
+  if (smp.img) { heroImage(smp.img, (im) => { const [c, w, h] = fit(mel); c.drawImage(im, 0, 0, w, h); }); return; }
+  graticule(mc, mw, mh, 10, 4, "rgba(255,255,255,.14)");
+  const series = smp.leads || [smp.sig], band = mh / series.length;
+  mc.strokeStyle = color; mc.lineWidth = smp.leads ? 1 : 1.1; mc.shadowColor = color; mc.shadowBlur = smp.leads ? 1.5 : 3;
+  mc.lineJoin = "round";
+  series.forEach((sig, k) => {
+    const sorted = [...sig].sort((p, q) => p - q), med = sorted[sorted.length >> 1];
+    const lo = d3.min(sig), hi = d3.max(sig), range = (hi - lo) || 1;
+    mc.beginPath();
+    sig.forEach((v, i) => {
+      const x = i / (sig.length - 1) * mw;
+      const y = smp.leads ? band * k + band / 2 - ((v - med) / range) * band * .85 : mh - ((v - lo) / range) * mh * .8 - mh * .1;
+      i ? mc.lineTo(x, y) : mc.moveTo(x, y);
+    });
+    mc.stroke();
+  });
+}
+const HERO_SRC = { VSD: "ZCHSound", AS: "BMD-HS", COPD: "ICBHI 2017", AF: "MIMIC PERform AF", LQT: "PTB-XL", WPW: "PTB-XL" };
+const HERO_LABEL = { VSD: "Heart sounds (VSD)", AS: "Heart sounds (AS)", COPD: "Lung sounds (COPD)", AF: "PPG (AF)", LQT: "ECG (LQT)", WPW: "ECG (WPW)" };
+const HERO_DESC = {
+  VSD: "Heart sounds with a ventricular septal defect, 10 s",
+  AS: "Heart sounds with aortic stenosis, 10 s",
+  COPD: "Lung sounds in COPD, 10 s",
+  AF: "Photoplethysmogram in atrial fibrillation, 30 s",
+  LQT: "Two-lead ECG (I, II) in long-QT syndrome, 10 s",
+  WPW: "Two-lead ECG (I, II) in Wolff–Parkinson–White syndrome, 10 s",
+};
 hero.task = 0; hero.ex = 0;
 function heroDraw() {
   const ex = GENS._hero && GENS._hero.examples[hero.task]; if (!ex) return;
-  const it = ex.items[hero.ex], cs = getComputedStyle($(".band"));
-  drawScope("real", it.real, cs.getPropertyValue("--real").trim());
-  drawScope("root", it.root, cs.getPropertyValue("--sim").trim());
-  drawScope("best", it.authored, cs.getPropertyValue("--sim").trim());
+  const it = ex.items[hero.ex], cs = getComputedStyle($(".band")), m = ex.modality || "audio";
+  drawScope("real", it.real, cs.getPropertyValue("--real").trim(), m);
+  drawScope("root", it.root, cs.getPropertyValue("--sim").trim(), m);
+  drawScope("best", it.authored, cs.getPropertyValue("--sim").trim(), m);
 }
 function heroRender() {
-  const ex = GENS._hero.examples[hero.task];
+  const ex = GENS._hero.examples[hero.task], audio = (ex.modality || "audio") === "audio";
   $$("#hero-task button").forEach((b, i) => b.setAttribute("aria-pressed", String(i === hero.task)));
+  const exEl = $("#hero-ex");
+  exEl.innerHTML = ex.items.length > 1 ? ex.items.map((_, k) => `<button data-ex="${k}" aria-pressed="${k === hero.ex}">Candidate ${k + 1}</button>`).join("") : "";
+  $$("#hero-ex button").forEach((b) => b.addEventListener("click", () => { hero.ex = +b.dataset.ex; stopHeroAudio(); heroRender(); }));
+  $$("[data-play]").forEach((b) => { b.style.display = audio ? "" : "none"; });
   $("#real-name").textContent = `Real recording (${HERO_SRC[ex.task]})`;
   $("#best-name").textContent = `Authored program #${ex.best}`;
   $("#root-read").textContent = `score ${f3(ex.root_score)}`;
   $("#best-read").textContent = `score ${f3(ex.best_score)}`;
-  $("#hero-cap").textContent = `${HERO_DESC[ex.task]}, 10 s. A real recording, the zero-shot root program and the program after 100 authoring attempts. Real recordings are shown as images only.`;
+  $("#hero-cap").textContent = `${HERO_DESC[ex.task]}. A real recording, the zero-shot root program and the program after 100 authoring attempts. Real recordings are shown as images only.`;
   heroDraw();
 }
 function stopHeroAudio() {
@@ -161,8 +202,8 @@ function stopHeroAudio() {
 }
 function initHero() {
   if (!GENS._hero) return;
-  $("#hero-task").innerHTML = GENS._hero.examples.map((e, i) => `<button data-t="${i}" aria-pressed="${i === 0}">${e.task === "VSD" ? "Heart sounds (VSD)" : "Lung sounds (COPD)"}</button>`).join("");
-  $$("#hero-task button").forEach((b) => b.addEventListener("click", () => { hero.task = +b.dataset.t; stopHeroAudio(); heroRender(); }));
+  $("#hero-task").innerHTML = GENS._hero.examples.map((e, i) => `<button data-t="${i}" aria-pressed="${i === 0}">${HERO_LABEL[e.task]}</button>`).join("");
+  $$("#hero-task button").forEach((b) => b.addEventListener("click", () => { hero.task = +b.dataset.t; hero.ex = 0; stopHeroAudio(); heroRender(); }));
   $$("[data-play]").forEach((b) => b.addEventListener("click", () => {
     const id = b.dataset.play, same = hero.playing === id && hero.audio && !hero.audio.paused;
     stopHeroAudio();
