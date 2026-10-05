@@ -57,39 +57,38 @@ you can read and edit.
 You need three things: a name for what to simulate, a small set of real
 recordings, and an evaluator.
 
-1. **Prepare a small reference set.** Put a few dozen real recordings in one
-   folder; the paper used 37–96 per task. Audio as `.wav`, ECG as `(5000, 2)`
-   `.npy`, PPG as `(3750,)` `.npy`.
-2. **Write an evaluator.** A class that returns a score in [0, 1] and a short
-   report of how generated and real recordings differ. Start from the
-   [template](examples/custom_task/my_evaluator.py), or use a built-in one.
-3. **Run.**
+**1. Prepare a small reference set.** Put a few dozen real recordings in one
+folder; the paper used 37–96 per task. Audio as `.wav`, ECG as `(5000, 2)`
+`.npy`, PPG as `(3750,)` `.npy`.
+
+**2. Choose or write an evaluator.** An evaluator returns a score in [0, 1]
+and a short report of how generated and real recordings differ. Each signal
+type has a default, used in the paper:
+
+| Signal | Default evaluator | What it compares | Setup |
+|---|---|---|---|
+| Audio (heart, lung sounds) | `mfcc` | distributions of 13 MFCCs and zero-crossing rate | `pip install "simauthor[audio]"` |
+| PPG | `morphology` | 10 pulse statistics such as heart rate, pulse width and rise time | none |
+| ECG (leads I, II) | `ecg_founder_12lead` | embeddings from the frozen ECGFounder model | download the [ECGFounder](https://github.com/PKUDigitalHealth/ECGFounder) checkpoint and set `ECGFOUNDER_REPO`, `ECGFOUNDER_CKPT` |
+
+The default is chosen from `--modality`; pass `--evaluator my_evaluator.py` to
+use your own. Start from the [template](examples/custom_task/my_evaluator.py).
+
+**3. Run.** SimAuthor uses Gemini 3.1 Pro by default, as in the paper
+(`GEMINI_API_KEY`). Pass `--model deepseek-v4-pro` or the name of any
+OpenAI-compatible model to use another backend (keys are listed in
+[`.env.example`](.env.example)), or `--model mock` to test your setup offline.
 
 ```bash
-export GEMINI_API_KEY=...        # or --model deepseek-v4-pro, or any OpenAI-compatible model
+export GEMINI_API_KEY=...
 simauthor run --condition "Mitral regurgitation" --modality audio \
     --ref data/my_recordings --evaluator my_evaluator.py --out runs/mr
 ```
 
 SimAuthor writes a scientific blueprint and a root program, then revises it
 for 100 attempts. Every program, report and mechanism is saved under
-`runs/mr/`, and the best program is printed at the end. Add `--model mock` to
-check the setup without spending tokens. The
+`runs/mr/`, and the best program is printed at the end. The
 [custom-task guide](examples/custom_task/README.md) walks through each step.
-
-| `--model` | Backend | Key |
-|---|---|---|
-| `gemini-3.1-pro-preview` (default, used in the paper) | Google Gemini | `GEMINI_API_KEY` |
-| `deepseek-v4-pro` | DeepSeek | `DEEPSEEK_API_KEY` |
-| any other name | OpenAI-compatible endpoint (OpenAI, vLLM, OpenRouter, …) | `OPENAI_API_KEY`, `OPENAI_BASE_URL` |
-| `mock` | offline, canned responses | none |
-
-| Built-in evaluator | Signal | Needs |
-|---|---|---|
-| `mfcc` | audio | `[audio]` extra |
-| `morphology` | PPG | nothing |
-| `ecg_founder_12lead` | ECG | [ECGFounder](https://github.com/PKUDigitalHealth/ECGFounder) checkpoint (`ECGFOUNDER_REPO`, `ECGFOUNDER_CKPT`) |
-| `papagei` | PPG | [PaPaGei](https://github.com/Nokia-Bell-Labs/papagei-foundation-model) weights (`PAPAGEI_DIR`, `PAPAGEI_WEIGHTS`) |
 
 ## Reproduce the paper
 
