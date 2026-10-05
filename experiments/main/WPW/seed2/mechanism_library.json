@@ -1,0 +1,38 @@
+[
+  {
+    "name": "cardiac_vector_projection_modeling",
+    "mechanism": "Replaces independent per-lead amplitude generation with a 2D electrical axis model that projects cardiac vectors onto specific lead angles to ensure physiological consistency across leads.",
+    "code_snippet": "mag * np.cos(angle_rad - lead_angle_rad)",
+    "source_node": 2,
+    "delta": 0.04696,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "explicit_st_segment_modeling",
+    "mechanism": "Introduces an explicit Gaussian component to model the ST segment, ensuring physiological continuity between the QRS complex and the T-wave.",
+    "code_snippet": "",
+    "source_node": 4,
+    "delta": 0.05407,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "remove_septal_q_wave",
+    "mechanism": "Removes the septal Q-wave component from the ECG model, as the early ventricular pre-excitation (delta wave) in WPW syndrome obscures normal septal depolarization.",
+    "code_snippet": "Removal of q_angle, q_mag, q_width, q_mu and the corresponding gaussian addition",
+    "source_node": 5,
+    "delta": 0.02915,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "adjust_delta_wave_fusion",
+    "mechanism": "Shifting the delta wave closer to the R-wave and modifying its width and magnitude to ensure a smooth, slurred upstroke without notching.",
+    "code_snippet": "delta_mu = rng.uniform(-0.035, -0.02)",
+    "source_node": 50,
+    "delta": 0.02137,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  }
+]

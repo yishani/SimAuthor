@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use SimAuthor, please cite the paper."
+title: "SimAuthor: Harnessing Foundation Models for Persistent Scientific Simulator Authoring"
+authors:
+  - family-names: Wang
+    given-names: Yishan
+  - family-names: Piao
+    given-names: Ran
+  - family-names: Funk
+    given-names: Mathias
+  - family-names: Saeed
+    given-names: Aaqib
+repository-code: "https://github.com/yishani/SimAuthor"
+license: MIT
+preferred-citation:
+  type: article
+  title: "SimAuthor: Harnessing Foundation Models for Persistent Scientific Simulator Authoring"
+  authors:
+    - family-names: Wang
+      given-names: Yishan
+    - family-names: Piao
+      given-names: Ran
+    - family-names: Funk
+      given-names: Mathias
+    - family-names: Saeed
+      given-names: Aaqib
+  journal: "arXiv preprint"
+  year: 2026

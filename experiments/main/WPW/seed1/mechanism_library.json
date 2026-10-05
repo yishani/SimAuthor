@@ -1,0 +1,29 @@
+[
+  {
+    "name": "synchronize_temporal_parameters_across_leads",
+    "mechanism": "Moves the randomization of temporal parameters outside the lead iteration loop to ensure physiological synchrony across multiple ECG leads.",
+    "code_snippet": "# Temporal parameters (consistent across leads for physiological accuracy)",
+    "source_node": 2,
+    "delta": 0.09939,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "dynamic_severity_blending",
+    "mechanism": "Blends normal and pathological waveform components proportionally based on a continuous severity parameter.",
+    "code_snippet": "b_t_a = normal_t_a * (1 - bp['pre_ex']) + discordant_t * bp['pre_ex']",
+    "source_node": 4,
+    "delta": 0.07722,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "independent_r_s_axes",
+    "mechanism": "Replaces a single QRS axis with independent R and S vector axes to generate more realistic, continuous multi-lead morphological diversity.",
+    "code_snippet": "r_a = qrs_mag * np.cos(bp['r_axis'] - lead_angle); s_a = s_mag * np.cos(bp['s_axis'] - lead_angle)",
+    "source_node": 11,
+    "delta": 0.0267,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  }
+]

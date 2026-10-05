@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SimAuthor</title>
+<meta name="description" content="SimAuthor: Harnessing Foundation Models for Persistent Scientific Simulator Authoring. Code, search traces and an interactive trace explorer.">
+<meta property="og:title" content="SimAuthor: Harnessing Foundation Models for Persistent Scientific Simulator Authoring">
+<meta property="og:url" content="https://yishani.github.io/SimAuthor/">
+<meta property="og:image" content="https://yishani.github.io/SimAuthor/assets/fig/splash.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231c1f22'/%3E%3Cpath d='M4 17h5l3-8 4 15 3-11 2 4h7' fill='none' stroke='%23ffb547' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">SimAuthor</a>
+    <nav aria-label="Sections">
+      <a href="#overview">Overview</a>
+      <a href="#explore">Explore</a>
+      <a href="#results">Results</a>
+      <a href="#code">Code</a>
+      <a href="#citation">Citation</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="band">
+    <div class="wrap">
+      <div class="title-block">
+        <h1>SimAuthor</h1>
+        <p class="subtitle">Harnessing Foundation Models for Persistent Scientific Simulator Authoring</p>
+        <p class="authors"><span>Yishan Wang</span><span>Ran Piao</span><span>Mathias Funk</span><span>Aaqib Saeed</span></p>
+        <p class="affil">Eindhoven University of Technology</p>
+        <p class="links">
+          <a class="btn" href="https://arxiv.org/abs/XXXX.XXXXX">Paper</a>
+          <a class="btn" href="https://github.com/yishani/SimAuthor">Code</a>
+          <a class="btn" href="#citation">BibTeX</a>
+        </p>
+      </div>
+      <div class="scopes" aria-label="A real recording, the root simulator output and the authored simulator output">
+        <figure class="scope real">
+          <div class="scope-top"><i class="dot"></i><span class="scope-name" id="real-name">Real recording</span></div>
+          <canvas class="scope-mel" id="real-mel" aria-label="Mel spectrogram of the real recording"></canvas>
+          <canvas class="scope-trace" id="real-trace" aria-hidden="true"></canvas>
+          <div class="scope-bot"><span>search set</span><span class="read">reference</span></div>
+        </figure>
+        <figure class="scope sim">
+          <div class="scope-top"><i class="dot"></i><span class="scope-name">Root program S(0)</span>
+            <button class="scope-play" data-play="root" aria-label="Play the root program output">Play</button></div>
+          <canvas class="scope-mel" id="root-mel" aria-label="Mel spectrogram of the root simulator output"></canvas>
+          <canvas class="scope-trace" id="root-trace" aria-hidden="true"></canvas>
+          <div class="scope-bot"><span>zero-shot</span><span class="read num" id="root-read"></span></div>
+        </figure>
+        <figure class="scope sim">
+          <div class="scope-top"><i class="dot"></i><span class="scope-name" id="best-name">Authored program</span>
+            <button class="scope-play" data-play="authored" aria-label="Play the authored program output">Play</button></div>
+          <canvas class="scope-mel" id="best-mel" aria-label="Mel spectrogram of the authored simulator output"></canvas>
+          <canvas class="scope-trace" id="best-trace" aria-hidden="true"></canvas>
+          <div class="scope-bot"><span>after 100 attempts</span><span class="read num" id="best-read"></span></div>
+        </figure>
+      </div>
+      <div class="hero-foot">
+        <span class="seg" id="hero-task" role="group" aria-label="Example"></span>
+        <p class="band-cap" id="hero-cap"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block wrap" id="overview">
+    <h2>Overview</h2>
+    <div class="split" id="abstract">
+    <div class="split-text">
+      <p>Writing a scientific simulator with a foundation model takes repeated revision against scarce real data. SimAuthor keeps every program it writes, chooses what to revise by score, decides how to revise from a structured discrepancy report, and reuses edits that worked.</p>
+      <p>On six biomedical tasks it beats score-only search (PUCT) on all six at 100 attempts. Its simulators improve on unseen recordings, transfer to independent encoders on three of four tasks and help out-of-distribution ECG classification. Most of the gain is structural: 111 of 138 audited revisions change program structure and carry 86.1% of the improvement.</p>
+    </div>
+    <figure class="split-fig">
+      <img src="assets/fig/splash.jpg" alt="Overview: LLM prior, zero-shot simulator, authoring loop and authored simulator for COPD." loading="lazy" width="1800" height="777">
+      <figcaption><b>Figure 1.</b> From LLM prior knowledge to an executable simulator, using only scarce real data as feedback.</figcaption>
+    </figure>
+    </div>
+
+    <div class="split reverse" id="method">
+    <figure class="split-fig">
+      <img src="assets/fig/harness.jpg" alt="The SimAuthor authoring harness" loading="lazy" width="1800" height="563">
+      <figcaption><b>Figure 2.</b> The orchestrator selects by score; the refiner revises with the blueprint, discrepancy report and mechanism library.</figcaption>
+    </figure>
+    <div class="split-text">
+      <h3>Method</h3>
+      <ol class="steps">
+        <li><b>Select</b> a parent from the whole pool using its rank score plus an exploration bonus (flat PUCT).</li>
+        <li><b>Refine</b> it with one focused edit, guided by its discrepancy report, comparison figure, the blueprint and recent mechanisms.</li>
+        <li><b>Evaluate</b> the child: run it and score its 100 outputs against the reference recordings.</li>
+        <li><b>Remember</b> edits that gain at least 0.02 by adding them to the mechanism library.</li>
+      </ol>
+    </div>
+    </div>
+
+  </section>
+
+  <section class="block wrap" id="explore">
+    <h2>Explore</h2>
+    <p class="prose">Drag the slider to replay a 100-attempt run program by program. Select any program in the tree to see its code change, the feedback it received and the context the refiner was given; the diagram highlights the part of the harness behind each tab.</p>
+
+    <div class="tool">
+      <div class="tool-bar">
+        <span class="seg" id="task-tabs" role="tablist" aria-label="Task"></span>
+      </div>
+      <div class="transport">
+        <button class="icon-btn" id="btn-prev" aria-label="Previous program"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 5v14L7 12z"/></svg></button>
+        <input type="range" id="step" min="0" max="100" value="0" aria-label="Archived program">
+        <button class="icon-btn" id="btn-next" aria-label="Next program"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5v14l11-7z"/></svg></button>
+      </div>
+      <p class="status" id="status" aria-live="polite"></p>
+
+      <div class="lab-grid">
+        <div class="lab-left">
+          <div class="sub-panel">
+            <div class="sub-head"><span>Harness</span><span class="muted" id="phase-label"></span></div>
+            <svg id="diagram" viewBox="0 0 640 250" role="img" aria-label="The SimAuthor loop"></svg>
+          </div>
+          <div class="sub-panel">
+            <div class="sub-head"><span>Search tree</span><span class="muted" id="tree-count"></span></div>
+            <div class="tree-wrap" id="tree"></div>
+            <div class="legend-row"><span>Score</span><span class="ramp"></span><span id="ramp-lo"></span>–<span id="ramp-hi"></span><span><i class="sw"></i>lineage of the best program</span></div>
+          </div>
+        </div>
+        <aside class="sub-panel inspector" aria-label="Program inspector">
+          <div class="insp-head" id="insp-head"></div>
+          <div class="subtabs" role="tablist" id="insp-tabs">
+            <button class="subtab" role="tab" data-tab="change" aria-selected="true">Code change</button>
+            <button class="subtab" role="tab" data-tab="feedback" aria-selected="false">Evaluator feedback</button>
+            <button class="subtab" role="tab" data-tab="context" aria-selected="false">Refiner context</button>
+            <button class="subtab" role="tab" data-tab="code" aria-selected="false">Program</button>
+          </div>
+          <div class="insp-body" id="insp-body"><p class="muted">Loading the run…</p></div>
+        </aside>
+      </div>
+    </div>
+    <p class="tool-note">Shown for each task: the seed whose best program appears latest (VSD and COPD seed 1, AS seed 2, AF seed 1, LQT and WPW seed 3).</p>
+
+  </section>
+
+  <section class="block wrap" id="results">
+    <h2>Results</h2>
+    <h3 id="performance">Search performance</h3>
+    <p class="prose">Best-so-far search score over the archived programs of each 100-attempt run, recomputed from the released traces. Lines show the median-seed run and shading spans the three seeds; Sampling is one pool in fixed proposal order. PUCT score search uses the same selection rule as SimAuthor but shows the refiner only the score, so the gap isolates the effect of the discrepancy report and mechanism library.</p>
+    <div class="tool">
+      <div class="tool-bar"><span class="seg" id="res-tabs" role="tablist" aria-label="Task"></span></div>
+      <div class="series-legend" id="series-legend"></div>
+      <div id="res-chart" class="pad" style="position:relative"></div>
+    </div>
+    <h3 id="generalization">Generalization</h3>
+    <p class="prose">Each test changes one thing relative to search: the recordings, the evaluator, or what the simulator is used for. Every test covers all tasks to which it applies.</p>
+    <div class="gen-grid">
+      <article class="gen-card">
+        <h3>New recordings</h3>
+        <p class="scope-line">All six tasks</p>
+        <p class="tcap">The search evaluator on held-out recordings: patient-disjoint for VSD and AS, external datasets for the other four. Median of three seeds.</p>
+        <div class="gen-chart" id="chart-held"></div>
+        <details class="tbl"><summary>Table</summary><div class="table-scroll"><table class="paper" id="table-held"></table></div></details>
+      </article>
+      <article class="gen-card">
+        <h3>New evaluator</h3>
+        <p class="scope-line">Audio and PPG tasks · ECG search already uses ECGFounder</p>
+        <p class="tcap">The program chosen by the search score, re-scored with encoders never used during search: OPERA-CE for audio, PaPaGei for PPG.</p>
+        <div class="gen-chart" id="chart-rep"></div>
+        <details class="tbl"><summary>Table</summary><div class="table-scroll"><table class="paper" id="table-rep"></table></div></details>
+      </article>
+      <article class="gen-card">
+        <h3>New use: classification</h3>
+        <p class="scope-line">ECG tasks · labelled PTB-XL and Chapman cohorts</p>
+        <p class="tcap">AUPRC of a linear probe on frozen ECGFounder features after adding 300 synthetic positives. ID: PTB-XL; OOD: Chapman–Shaoxing. Probe and search share ECGFounder.</p>
+        <div class="gen-chart" id="chart-down"></div>
+        <details class="tbl"><summary>Table</summary><div class="table-scroll"><table class="paper" id="table-down"></table></div></details>
+      </article>
+    </div>
+  </section>
+
+  <section class="block wrap" id="code">
+    <h2>Code</h2>
+    <p class="prose">The released simulators need only NumPy and SciPy. Authoring a simulator for your own task needs a model API key, a few dozen real recordings and an evaluator; the repository includes a <a href="https://github.com/yishani/SimAuthor/tree/main/examples/custom_task">template and guide</a>.</p>
+<pre class="term"><button class="copy">Copy</button><span class="c"># install</span>
+pip install "simauthor[audio,llm] @ git+https://github.com/yishani/SimAuthor"
+
+<span class="c"># generate signals with a released simulator (no API key)</span>
+simauthor generate COPD --out samples/copd
+
+<span class="c"># author a simulator for your own task: a few dozen recordings + an evaluator</span>
+export GEMINI_API_KEY=...
+simauthor run --condition "Mitral regurgitation" --modality audio \
+    --ref data/my_recordings --evaluator my_evaluator.py --out runs/mr
+
+<span class="c"># reproduce the paper's tables from the released runs</span>
+git clone https://github.com/yishani/SimAuthor && python SimAuthor/experiments/reproduce.py</pre>
+  </section>
+
+  <section class="block wrap" id="citation">
+    <h2>Citation</h2>
+<pre class="term"><button class="copy">Copy</button>@article{wang2026simauthor,
+  title   = {{SimAuthor}: Harnessing Foundation Models for Persistent Scientific Simulator Authoring},
+  author  = {Wang, Yishan and Piao, Ran and Funk, Mathias and Saeed, Aaqib},
+  journal = {arXiv preprint arXiv:XXXX.XXXXX},
+  year    = {2026}
+}</pre>
+    <h3>Scope</h3>
+    <p class="prose">Search scores measure agreement between simulated and real signal distributions. They do not establish physiological or mechanistic fidelity, and the model can only correct discrepancies the evaluator exposes. All data are public, de-identified research datasets used under their original licences; no recordings are redistributed. We make no diagnostic or clinical claims.</p>
+  </section>
+</main>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

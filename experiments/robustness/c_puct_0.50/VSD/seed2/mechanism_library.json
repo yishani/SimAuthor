@@ -1,0 +1,29 @@
+[
+  {
+    "name": "generate_pink_noise_murmur",
+    "mechanism": "Generates the base murmur signal using pink noise instead of white noise by scaling the frequency domain amplitudes by 1/sqrt(f) to better model the natural spectral roll-off.",
+    "code_snippet": "X *= (1.0 / np.sqrt(freqs))",
+    "source_node": 3,
+    "delta": 0.07643,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "model_physiological_envelope_diversity",
+    "mechanism": "Introduces distinct amplitude envelope shapes, such as plateau and decrescendo, to simulate different physiological subtypes of a condition.",
+    "code_snippet": "env_type = np.random.choice(['plateau', 'decrescendo'], p=[0.8, 0.2])",
+    "source_node": 17,
+    "delta": 0.15048,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "enhance_broadband_valve_click",
+    "mechanism": "Increases the decay rate and amplitude ratio of the broadband transient click in heart sounds to make them more prominent and realistic in the spectrogram.",
+    "code_snippet": "env_click = np.exp(-250 * t); sound = thump + 0.4 * click",
+    "source_node": 27,
+    "delta": 0.02667,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

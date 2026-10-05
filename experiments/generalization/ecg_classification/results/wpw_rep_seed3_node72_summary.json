@@ -1,0 +1,21 @@
+{
+  "condition": "WPW",
+  "arm": "rep_seed3_node72",
+  "simulator": "experiments/main/WPW/seed3/candidates/script_072.py",
+  "representation_search_score": 0.6525089176820943,
+  "n_synthetic": 300,
+  "generation_seed": 42,
+  "classifier_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "encoder": "ECGFounder 12-lead (two observed leads, ten zero-padded)",
+  "id_auprc_mean": 0.8614522740051719,
+  "id_auroc_mean": 0.9734476328314174,
+  "ood_auprc_mean": 0.8043938969747269,
+  "ood_auroc_mean": 0.9645372564507635,
+  "runtime_s": 29.996264934539795
+}

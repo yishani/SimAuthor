@@ -1,0 +1,65 @@
+[
+  {
+    "name": "cardiac_axis_projection",
+    "mechanism": "Derives multi-lead amplitude scaling factors by projecting a random cardiac axis angle onto specific lead vectors, ensuring physiologically realistic inter-lead relationships.",
+    "code_snippet": "scale_I = mag * np.cos(axis_angle); scale_II = mag * np.cos(axis_angle - np.pi/3)",
+    "source_node": 1,
+    "delta": 0.07225,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "consistent_intra_subject_twave_morphology",
+    "mechanism": "Define T-wave amplitude, width, and alternans magnitude parameters outside the beat loop to maintain consistent waveform morphology across all beats for a given subject.",
+    "code_snippet": "t_base_amp = np.random.uniform(0.4, 0.7)",
+    "source_node": 2,
+    "delta": 0.02475,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "anchor_t_wave_termination",
+    "mechanism": "Anchors the T-wave center at a fixed multiple of its standard deviation before the target QT end time to ensure consistent waveform termination across different morphologies.",
+    "code_snippet": "center_t = t_end - 2.5 * t_sigma",
+    "source_node": 3,
+    "delta": 0.04314,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "asymmetric_gaussian_waveform",
+    "mechanism": "Introduces an asymmetric Gaussian function with distinct left and right standard deviations to generate more realistic, skewed physiological waveforms such as T-waves.",
+    "code_snippet": "def asymmetric_gaussian(t, center, sigma_left, sigma_right, amplitude):",
+    "source_node": 4,
+    "delta": 0.02667,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "stochastic_ecg_temporal_intervals",
+    "mechanism": "Replaces hardcoded temporal offsets and widths for ECG wave components with stochastic variables to increase inter-subject physiological diversity.",
+    "code_snippet": "pr_interval = np.random.uniform(0.12, 0.20); q_offset = np.random.uniform(0.015, 0.025)",
+    "source_node": 31,
+    "delta": 0.07745,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "increase_stochastic_parameter_variance",
+    "mechanism": "Broadens the uniform distribution bounds for physiological and morphological parameters (such as cardiac axis, QRS amplitude, and interval offsets) to increase inter-subject diversity and reduce mode collapse.",
+    "code_snippet": "r_amp = np.random.uniform(0.5, 2.2) axis_angle = np.random.uniform(-10, 80) * np.pi / 180.0",
+    "source_node": 51,
+    "delta": 0.02386,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "randomize_q_s_wave_widths",
+    "mechanism": "Replaces fixed constants with uniform random variables for Q and S wave widths to increase morphological diversity in the generated QRS complexes.",
+    "code_snippet": "q_width = np.random.uniform(0.006, 0.010)",
+    "source_node": 58,
+    "delta": 0.05,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  }
+]

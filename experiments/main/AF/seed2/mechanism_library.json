@@ -1,0 +1,47 @@
+[
+  {
+    "name": "asymmetric_log_normal_pulse_waves",
+    "mechanism": "Replaces symmetric Gaussian functions with asymmetric log-normal distributions to model systolic and diastolic waves, producing a more physiologically realistic pulse morphology with a steep rise and gradual decay.",
+    "code_snippet": "sys_wave = amp * np.exp(- (np.log(dt) - mu1)**2 / (2 * sigma1**2))",
+    "source_node": 1,
+    "delta": 0.18309,
+    "observation_count": 1,
+    "island": "morphology"
+  },
+  {
+    "name": "adjust_log_normal_waveform_parameters",
+    "mechanism": "Adjusted the log-normal distribution parameters for the systolic and diastolic waves to widen the pulse and better match reference rise time and pulse width.",
+    "code_snippet": "mu1 = np.log(0.15); sigma1 = 0.55",
+    "source_node": 2,
+    "delta": 0.14366,
+    "observation_count": 1,
+    "island": "morphology"
+  },
+  {
+    "name": "use_asymmetric_gaussian_pulses",
+    "mechanism": "Replaces log-normal distributions with asymmetric Gaussian functions to model systolic and diastolic waves, allowing independent control over rise time and decay.",
+    "code_snippet": "np.where(dt < t_sys, amp * np.exp(- (dt - t_sys)**2 / (2 * sigma_sys_left**2)), amp * np.exp(- (dt - t_sys)**2 / (2 * sigma_sys_right**2)))",
+    "source_node": 4,
+    "delta": 0.04069,
+    "observation_count": 1,
+    "island": "morphology"
+  },
+  {
+    "name": "widen_pulse_waveform_components",
+    "mechanism": "Increases the standard deviations and peak times of the asymmetric Gaussian functions modeling the systolic and diastolic waves to produce a wider, more physiologically realistic pulse waveform.",
+    "code_snippet": "sigma_sys_left = 0.06",
+    "source_node": 5,
+    "delta": 0.12626,
+    "observation_count": 1,
+    "island": "morphology"
+  },
+  {
+    "name": "increase_pulse_waveform_width",
+    "mechanism": "Increases the standard deviations and delays the peak times of the systolic and diastolic asymmetric Gaussian waves to produce a wider overall pulse waveform.",
+    "code_snippet": "sigma_sys_left = 0.06",
+    "source_node": 26,
+    "delta": 0.09293,
+    "observation_count": 1,
+    "island": "morphology"
+  }
+]

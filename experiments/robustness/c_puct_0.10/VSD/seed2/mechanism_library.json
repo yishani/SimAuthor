@@ -1,0 +1,20 @@
+[
+  {
+    "name": "use_pink_noise_murmur",
+    "mechanism": "Replaces white noise with pink noise to generate the murmur, providing a more realistic 1/f spectral roll-off for fluid turbulence.",
+    "code_snippet": "noise = generate_pink_noise(num_samples)",
+    "source_node": 2,
+    "delta": 0.03024,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "add_broadband_valve_click",
+    "mechanism": "Introduces a high-passed white noise component with a rapid exponential decay to simulate the broadband transient of valve closure in heart sounds.",
+    "code_snippet": "raw_click = np.random.randn(len(t)); b_click, a_click = signal.butter(2, 250 / (0.5 * fs), btype='high'); filtered_click = signal.lfilter(b_click, a_click, raw_click); click_env = np.exp(-100 * t); cl",
+    "source_node": 68,
+    "delta": 0.05143,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

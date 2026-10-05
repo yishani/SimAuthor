@@ -1,0 +1,56 @@
+[
+  {
+    "name": "stochastic_breath_by_breath_synthesis",
+    "mechanism": "Synthesizes the respiratory signal iteratively breath-by-breath to allow for natural stochastic variation in inspiration, expiration, and pause durations within a single recording.",
+    "code_snippet": "while idx < len(t): t_i = np.random.normal(1.2, 0.1); t_e = np.random.normal(3.0, 0.3); ...",
+    "source_node": 1,
+    "delta": 0.15011,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "use_brown_background_noise",
+    "mechanism": "Replaces pink noise with brown noise for the background floor to better simulate the acoustic damping of the body and reduce unnatural high-frequency energy.",
+    "code_snippet": "S_bg = np.arange(1, len(X_bg) + 1)",
+    "source_node": 3,
+    "delta": 0.18093,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "add_narrowband_noise_to_wheezes",
+    "mechanism": "Adds bandpass-filtered Gaussian noise centered at the fundamental frequency to tonal wheeze signals to reduce synthetic purity and simulate a breathy texture.",
+    "code_snippet": "sos_nb = signal.butter(2, [max(20, f0 - 50), min(SR/2 - 1, f0 + 50)], btype='bandpass', fs=SR, output='sos')",
+    "source_node": 41,
+    "delta": 0.02593,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "randomize_filter_order",
+    "mechanism": "Randomizes the order of the Butterworth low-pass filter to increase the diversity of spectral roll-off characteristics.",
+    "code_snippet": "filter_order = np.random.choice([2, 3, 4])",
+    "source_node": 80,
+    "delta": 0.12599,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "widen_crackle_bandwidth",
+    "mechanism": "Increased the upper cutoff frequency of the bandpass filter for coarse crackles from 600 Hz to 1200 Hz to better capture broadband transient energy.",
+    "code_snippet": "signal.butter(2, [100, 1200], btype='bandpass', fs=SR, output='sos')",
+    "source_node": 87,
+    "delta": 0.06181,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "slowed_expiratory_envelope_decay",
+    "mechanism": "Decreasing the exponential decay rate of the expiratory envelope sustains signal energy longer, preventing extreme sparsity and improving the RMS-to-peak ratio.",
+    "code_snippet": "env_e = np.sin(np.pi * phase_e) * np.exp(-2.0 * phase_e)",
+    "source_node": 96,
+    "delta": 0.03016,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

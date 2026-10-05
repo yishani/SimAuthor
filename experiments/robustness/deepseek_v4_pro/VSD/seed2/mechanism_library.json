@@ -1,0 +1,47 @@
+[
+  {
+    "name": "remove_full_band_noise",
+    "mechanism": "The child removes the full-band white-noise floor that added unrealistic high-frequency zero crossings during diastole and instead keeps only band-limited low-frequency sensor noise.",
+    "code_snippet": "Removed audio += np.random.randn(total_samples) * 0.005; kept audio += bg_noise * noise_level",
+    "source_node": 4,
+    "delta": 0.06452,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "pink_noise_murmur_source",
+    "mechanism": "Replacing the white-noise murmur source with 1/f pink noise reduces unrealistic high-frequency energy and zero-crossing rate while better matching turbulent blood-flow spectral roll-off.",
+    "code_snippet": "generate_pink_noise: FFT-shaped white noise scaled by 1/sqrt(f)",
+    "source_node": 5,
+    "delta": 0.04667,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "severity_dependent_noise_beta",
+    "mechanism": "Replaces fixed pink noise and a fixed 350 Hz resonance with severity-dependent 1/f^beta turbulent source slope, reducing high-frequency energy and broadening spectral diversity.",
+    "code_snippet": "scale[positive] = 1.0 / (freqs[positive] ** (beta / 2.0))",
+    "source_node": 6,
+    "delta": 0.02238,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "second_order_spectral_tilt",
+    "mechanism": "A second-order Butterworth low-pass tilt applied with zero-phase filtfilt steepens the murmur's high-frequency rolloff, reducing excessive high-frequency energy and zero-crossing rate.",
+    "code_snippet": "signal.butter(2, tilt_cutoff / nyq, btype='low')",
+    "source_node": 12,
+    "delta": 0.04381,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "broaden_spectral_tilt_diversity",
+    "mechanism": "Widening the murmur high-frequency edge and spectral tilt cutoff sampling ranges increases spectral diversity and high-frequency energy coverage, improving zero-crossing rate realism.",
+    "code_snippet": "murmur_high log-uniform 220-1000 Hz; tilt_cutoff uniform(0.60,1.20)*murmur_high clip 200-1000",
+    "source_node": 86,
+    "delta": 0.02214,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

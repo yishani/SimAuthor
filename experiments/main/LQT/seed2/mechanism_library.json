@@ -1,0 +1,56 @@
+[
+  {
+    "name": "simulate_t_wave_alternans",
+    "mechanism": "Simulates T-wave alternans by applying a beat-to-beat alternating amplitude modulation to the T-wave in severe cases.",
+    "code_snippet": "twa_mod = twa_amp * (1 if i % 2 == 0 else -1)",
+    "source_node": 2,
+    "delta": 0.0536,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "composite_gaussian_t_wave",
+    "mechanism": "Replaces a single Gaussian with a composite of two Gaussian waves to generate a broad, asymmetric T-wave morphology for LQT1 without engulfing the QRS complex.",
+    "code_snippet": "lead_II += gaussian_wave(t, beat_t + center_t1, sigma_t1, amp_II * 0.6); lead_II += gaussian_wave(t, beat_t + center_t2, sigma_t2, amp_II)",
+    "source_node": 4,
+    "delta": 0.05558,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "decoupled_gaussian_component_amplitudes",
+    "mechanism": "Assigning independent amplitude parameters to individual Gaussian components of a composite wave prevents unnatural additive summation and improves morphological realism.",
+    "code_snippet": "",
+    "source_node": 9,
+    "delta": 0.02994,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "fractional_qt_twave_timing",
+    "mechanism": "Positions T-wave Gaussian centers using proportional fractions of the QT interval relative to QRS onset instead of fixed backward offsets from the end of the T-wave.",
+    "code_snippet": "center_t = qrs_onset + qt * 0.85",
+    "source_node": 10,
+    "delta": 0.02044,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "composite_gaussian_twave_morphology",
+    "mechanism": "Replaces a single excessively wide Gaussian with a composite of two Gaussians (an early broad component and a narrower main peak) to generate a realistic, broad-based, asymmetric T-wave for LQT1.",
+    "code_snippet": "lead_II += gaussian_wave(t, beat_t + center_t1, sigma_t1, amp_II * 0.5) lead_II += gaussian_wave(t, beat_t + center_t2, sigma_t2, amp_II * 0.8)",
+    "source_node": 19,
+    "delta": 0.04818,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "model_lqt1_single_broad_gaussian",
+    "mechanism": "Replaces a composite two-Gaussian T-wave model with a single, exceptionally broad Gaussian to accurately simulate the symmetrical, broad-based morphology characteristic of LQT1.",
+    "code_snippet": "sigma_t = np.random.uniform(0.07, 0.11); center_t = qrs_onset + qt * 0.55; lead_II += gaussian_wave(t, beat_t + center_t, sigma_t, amp_II)",
+    "source_node": 25,
+    "delta": 0.03164,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  }
+]

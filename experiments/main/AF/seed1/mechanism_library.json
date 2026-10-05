@@ -1,0 +1,47 @@
+[
+  {
+    "name": "add_high_pass_filter",
+    "mechanism": "Applies a high-pass filter to the synthesized signal to remove DC offset and introduce physiological undershoot.",
+    "code_snippet": "b_hp, a_hp = butter(2, 0.5 / nyq, btype='high'); signal = filtfilt(b_hp, a_hp, signal)",
+    "source_node": 1,
+    "delta": 0.25841,
+    "observation_count": 1,
+    "island": "morphology"
+  },
+  {
+    "name": "add_systolic_shoulder_component",
+    "mechanism": "Introduces a third Gaussian component to the pulse morphology to model the systolic shoulder, widening the peak and slowing the initial decay.",
+    "code_snippet": "a1b * np.exp(-0.5 * ((t_window - t1b) / w1b)**2)",
+    "source_node": 2,
+    "delta": 0.06325,
+    "observation_count": 1,
+    "island": "morphology"
+  },
+  {
+    "name": "reduce_high_pass_cutoff",
+    "mechanism": "Lowering the high-pass filter cutoff frequency preserves the low-frequency components of the PPG signal, preventing excessive waveform distortion and artificially deep valleys.",
+    "code_snippet": "b_hp, a_hp = butter(2, 0.25 / nyq, btype='high')",
+    "source_node": 5,
+    "delta": 0.08337,
+    "observation_count": 2,
+    "island": "morphology"
+  },
+  {
+    "name": "increase_high_pass_cutoff",
+    "mechanism": "Increasing the high-pass filter cutoff frequency enhances waveform morphology by creating deeper valleys and steepening the rise time.",
+    "code_snippet": "b_hp, a_hp = butter(2, 0.6 / nyq, btype='high')",
+    "source_node": 6,
+    "delta": 0.0641,
+    "observation_count": 2,
+    "island": "morphology"
+  },
+  {
+    "name": "lower_high_pass_cutoff_frequency",
+    "mechanism": "Lowering the high-pass filter cutoff frequency from 0.5 Hz to 0.25 Hz preserves low-frequency physiological components and prevents artificial waveform distortion.",
+    "code_snippet": "butter(2, 0.25 / nyq, btype='high')",
+    "source_node": 70,
+    "delta": 0.0669,
+    "observation_count": 1,
+    "island": "morphology"
+  }
+]

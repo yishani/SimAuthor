@@ -1,0 +1,20 @@
+[
+  {
+    "name": "replace_white_noise_with_pink_noise",
+    "mechanism": "Replaces white noise with pink noise using an FFT-based 1/f spectral scaling method to generate more realistic murmurs and ambient noise with natural energy roll-off.",
+    "code_snippet": "X = np.fft.rfft(np.random.randn(N)); X = X / np.sqrt(indices); return np.fft.irfft(X, n=N)",
+    "source_node": 3,
+    "delta": 0.02357,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "add_heart_sound_texture",
+    "mechanism": "Adds low-pass filtered random noise scaled by the amplitude envelope to the heart sound waveforms to reduce synthetic purity and simulate realistic physiological texture.",
+    "code_snippet": "noise = signal.filtfilt(b, a, np.random.randn(len(t))); sound += env * noise * 0.3",
+    "source_node": 23,
+    "delta": 0.04857,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

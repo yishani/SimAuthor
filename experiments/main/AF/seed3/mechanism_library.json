@@ -1,0 +1,47 @@
+[
+  {
+    "name": "decouple_pulse_morphology_from_rr",
+    "mechanism": "Replaces RR-interval-dependent pulse timing and width scaling with fixed timings and amplitude-dependent widths to improve physiological realism of the waveform morphology.",
+    "code_snippet": "w1 = 0.06 + 0.02 * (1.0 - amp); t1 = b_time + 0.12",
+    "source_node": 1,
+    "delta": 0.25684,
+    "observation_count": 1,
+    "island": "morphology"
+  },
+  {
+    "name": "replace_lowpass_with_bandpass_filter",
+    "mechanism": "Replaces a low-pass anti-aliasing filter with a bandpass filter to simultaneously remove DC offset and prevent aliasing.",
+    "code_snippet": "b, a = butter(3, [lowcut / nyq, highcut / nyq], btype='band')",
+    "source_node": 2,
+    "delta": 0.09057,
+    "observation_count": 1,
+    "island": "morphology"
+  },
+  {
+    "name": "adjust_pulse_morphology_parameters",
+    "mechanism": "Adjusts systolic width, peak timings, and dicrotic ratio to ensure a continuous, physiological pulse width and morphology.",
+    "code_snippet": "w1 = 0.035 + 0.01 * (1.0 - amp)",
+    "source_node": 4,
+    "delta": 0.02918,
+    "observation_count": 2,
+    "island": "morphology"
+  },
+  {
+    "name": "three_component_pulse_morphology",
+    "mechanism": "Transitions from a two-component to a three-component Gaussian model for pulse morphology by adding a reflected wave component to better simulate physiological features like the dicrotic notch.",
+    "code_snippet": "pulse = amp * np.exp(-0.5 * ((t_window - t1) / w1)**2) + a2 * np.exp(-0.5 * ((t_window - t2) / w2)**2) + a3 * np.exp(-0.5 * ((t_window - t3) / w3)**2)",
+    "source_node": 8,
+    "delta": 0.0566,
+    "observation_count": 1,
+    "island": "morphology"
+  },
+  {
+    "name": "reorder_highpass_baseline_wander",
+    "mechanism": "Applies highpass filtering to remove artificial DC shifts before adding physiological baseline wander, preventing the filter from attenuating the intentionally added wander.",
+    "code_snippet": "signal = filtfilt(b_hp, a_hp, signal) signal = add_noise_and_baseline(...)",
+    "source_node": 23,
+    "delta": 0.05068,
+    "observation_count": 1,
+    "island": "morphology"
+  }
+]

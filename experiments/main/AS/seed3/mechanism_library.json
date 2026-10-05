@@ -1,0 +1,38 @@
+[
+  {
+    "name": "apply_chest_wall_lowpass_filter",
+    "mechanism": "Applies a low-pass filter to the audio signal to simulate the acoustic attenuation of the chest wall, reducing unrealistic high-frequency content.",
+    "code_snippet": "signal.butter(2, 300, btype='lowpass', fs=FS_INTERNAL, output='sos')",
+    "source_node": 21,
+    "delta": 0.06413,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "add_baseline_wander_component",
+    "mechanism": "Introduces a very low-frequency baseline wander component generated from filtered white noise to simulate sensor movement and reduce unrealistic zero-crossing rates.",
+    "code_snippet": "sos_wander = signal.butter(2, 5, btype='lowpass', fs=fs, output='sos')",
+    "source_node": 24,
+    "delta": 0.21247,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "randomize_component_frequencies",
+    "mechanism": "Randomizing the frequency parameters of individual signal components and filters increases spectral diversity across generated samples.",
+    "code_snippet": "s1_freq = np.random.uniform(40, 60)",
+    "source_node": 26,
+    "delta": 0.0928,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "reduce_spectral_cutoff_frequencies",
+    "mechanism": "Decreased the frequency ranges for murmur bandpass and ambient/chest lowpass filters to reduce the zero-crossing rate and better match empirical acoustic characteristics.",
+    "code_snippet": "murmur_f_low = np.random.uniform(60, 120)",
+    "source_node": 31,
+    "delta": 0.04685,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

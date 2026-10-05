@@ -1,0 +1,56 @@
+[
+  {
+    "name": "stochastic_respiratory_cycle_jitter",
+    "mechanism": "Replaces a fixed modulo-based respiratory phase with a loop that applies random jitter to the duration and I:E ratio of each individual breath cycle to simulate natural physiological variability.",
+    "code_snippet": "c_len = cycle_len_mean * np.random.uniform(0.9, 1.1); c_ie = ie_ratio * np.random.uniform(0.9, 1.1)",
+    "source_node": 1,
+    "delta": 0.11484,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "apply_exponential_decay_envelope",
+    "mechanism": "Applying an exponential decay envelope to short noise bursts creates a more realistic, asymmetric popping morphology characteristic of physiological crackles.",
+    "code_snippet": "decay = np.exp(-np.linspace(0, 3, actual_len)); crackle_sound[idx:end_idx] += burst * decay",
+    "source_node": 2,
+    "delta": 0.07258,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "per_breath_wheeze_generation",
+    "mechanism": "Generates wheeze sounds independently for each breath cycle with natural pitch drift, rather than applying an amplitude envelope to a continuous frequency-modulated signal.",
+    "code_snippet": "f0_contour = np.linspace(f0_start, f0_end, total_samples)",
+    "source_node": 18,
+    "delta": 0.03852,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "attenuate_high_frequency_background_noise",
+    "mechanism": "Applies a low-pass filter to the background pink noise to simulate acoustic insulation from hyperinflation and reduce unnaturally high zero-crossing rates.",
+    "code_snippet": "b_hiss, a_hiss = signal.butter(2, 400, btype='lowpass', fs=SR); bg_pink = signal.filtfilt(b_hiss, a_hiss, bg_pink)",
+    "source_node": 20,
+    "delta": 0.05429,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "add_wheeze_harmonics",
+    "mechanism": "Introduces a second harmonic to the primary sine wave during wheeze synthesis to produce a richer, more realistic polyphonic timbre.",
+    "code_snippet": "w = (np.sin(2 * np.pi * phase_acc) + 0.2 * np.sin(4 * np.pi * phase_acc) + 0.1 * nb_noise) * (1.0 + 0.3 * am_noise)",
+    "source_node": 25,
+    "delta": 0.03038,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "remove_wheeze_harmonics",
+    "mechanism": "Removed the artificial second harmonic from the wheeze synthesis equation to produce a more organic, less synthetic sound.",
+    "code_snippet": "w = (np.sin(2 * np.pi * phase_acc) + 0.15 * nb_noise) * (1.0 + 0.3 * am_noise)",
+    "source_node": 71,
+    "delta": 0.03588,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

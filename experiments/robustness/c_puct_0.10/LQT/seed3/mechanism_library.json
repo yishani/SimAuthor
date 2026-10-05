@@ -1,0 +1,47 @@
+[
+  {
+    "name": "asymmetric_gaussian_wave_modeling",
+    "mechanism": "Introduces an asymmetric Gaussian function with independent left and right standard deviations to model realistic physiological waveforms with skewed morphologies.",
+    "code_snippet": "def asym_gaussian_wave(t, center, sigma_left, sigma_right, amplitude):",
+    "source_node": 1,
+    "delta": 0.07409,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "cardiac_axis_vector_projection",
+    "mechanism": "Replaces independent lead amplitude generation with a 2D frontal plane vector projection model that calculates lead-specific amplitudes based on intrinsic wave magnitudes and randomized cardiac axis angles.",
+    "code_snippet": "def project_vector(magnitude, vector_angle_deg, lead_angle_deg): return magnitude * np.cos(np.radians(vector_angle_deg - lead_angle_deg))",
+    "source_node": 2,
+    "delta": 0.07187,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "proportional_t_wave_scaling",
+    "mechanism": "Scale T-wave timing and width proportionally to the dynamic QT interval rather than using fixed time offsets to maintain realistic morphology across varying heart rates.",
+    "code_snippet": "dt_t = qt * np.random.uniform(0.55, 0.65)",
+    "source_node": 6,
+    "delta": 0.02259,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "randomized_pr_interval",
+    "mechanism": "Replaced a fixed P-wave time offset with a uniformly sampled PR interval to introduce physiological temporal variability.",
+    "code_snippet": "pr_interval = np.random.uniform(0.12, 0.20)",
+    "source_node": 7,
+    "delta": 0.0338,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "dynamic_twave_interval_scaling",
+    "mechanism": "Calculates T-wave temporal centers and widths as proportional fractions of the dynamic QT interval to ensure smooth physiological continuity across the ST segment.",
+    "code_snippet": "sigma_left = (dt_t - qrs_end) / 2.5",
+    "source_node": 34,
+    "delta": 0.02937,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  }
+]

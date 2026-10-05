@@ -1,0 +1,39 @@
+{
+  "description": "Held-out representation-space endpoint results reported in the paper. r_sel is the representation score of the signal-selected output; r_max is the post-hoc representation-best score within the candidate pool.",
+  "reference_split": "search_ref",
+  "aggregation": "L2-normalized unbiased energy distance",
+  "encoders": {
+    "audio": "OPERA-COLA-EfficientNet",
+    "ppg": "PaPaGei-S"
+  },
+  "results": {
+    "VSD": {
+      "modality": "audio",
+      "root": {"r_sel": 0.31651302226969924, "r_max": 0.31651302226969924, "n_candidates": 1},
+      "one_shot": {"r_sel": 0.12272997448416856, "r_max": 0.7146421498759379, "n_candidates": 95, "signal_selected_index": 91, "representation_best_index": 4},
+      "text_op": {"r_sel": 0.4432342583457742, "r_max": 0.7840193810375102, "n_candidates": 91, "signal_selected_index": 27, "representation_best_index": 87},
+      "full": {"r_sel": 0.2040139831732763, "r_max": 0.7894684113039814, "n_candidates": 100, "signal_selected_index": 89, "representation_best_index": 92}
+    },
+    "AS": {
+      "modality": "audio",
+      "root": {"r_sel": 0.19217905331053653, "r_max": 0.19217905331053653, "n_candidates": 1},
+      "one_shot": {"r_sel": 0.10590966217076003, "r_max": 0.6120804673469384, "n_candidates": 92, "signal_selected_index": 9, "representation_best_index": 40},
+      "text_op": {"r_sel": 0.257753348446987, "r_max": 0.6854378674096819, "n_candidates": 95, "signal_selected_index": 73, "representation_best_index": 55},
+      "full": {"r_sel": 0.30616302778906934, "r_max": 0.9057742416059112, "n_candidates": 100, "signal_selected_index": 31, "representation_best_index": 93}
+    },
+    "COPD": {
+      "modality": "audio",
+      "root": {"r_sel": 0.15238394606210404, "r_max": 0.15238394606210404, "n_candidates": 1},
+      "one_shot": {"r_sel": 0.16233827647026638, "r_max": 0.7989867848147969, "n_candidates": 97, "signal_selected_index": 98, "representation_best_index": 86},
+      "text_op": {"r_sel": 0.46823699755632914, "r_max": 0.8473542269895467, "n_candidates": 96, "signal_selected_index": 71, "representation_best_index": 88},
+      "full": {"r_sel": 0.5607062083692065, "r_max": 0.7520057641651602, "n_candidates": 100, "signal_selected_index": 96, "representation_best_index": 17}
+    },
+    "AF": {
+      "modality": "ppg",
+      "root": {"r_sel": 0.3537624667085211, "r_max": 0.3537624667085211, "n_candidates": 1},
+      "one_shot": {"r_sel": 0.43397417919284587, "r_max": 0.8302933951170278, "n_candidates": 99, "signal_selected_index": 70, "representation_best_index": 92},
+      "text_op": {"r_sel": 0.630664979749417, "r_max": 0.7341388237056687, "n_candidates": 99, "signal_selected_index": 36, "representation_best_index": 39},
+      "full": {"r_sel": 0.6645352068651083, "r_max": 0.7373571690729761, "n_candidates": 100, "signal_selected_index": 26, "representation_best_index": 79}
+    }
+  }
+}

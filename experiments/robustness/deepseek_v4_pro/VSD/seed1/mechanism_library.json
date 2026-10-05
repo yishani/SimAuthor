@@ -1,0 +1,38 @@
+[
+  {
+    "name": "pink_noise_murmur_source",
+    "mechanism": "The VSD murmur is synthesized from pink 1/f noise instead of white noise and band-pass filtered to the severity-appropriate 150-720 Hz range, reducing excessive high-frequency zero-crossing rate while preserving the holosystolic plateau envelope.",
+    "code_snippet": "generate_pink_noise",
+    "source_node": 1,
+    "delta": 0.1169,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "post_bandpass_lowpass_rolloff",
+    "mechanism": "A zero-phase 2nd-order 500 Hz low-pass filter is applied after the murmur band-pass filter to attenuate high-frequency energy and reduce excessive zero-crossing rate.",
+    "code_snippet": "b_lp, a_lp = signal.butter(2, 500.0 / nyq, btype='low'); murmur = signal.filtfilt(b_lp, a_lp, murmur)",
+    "source_node": 3,
+    "delta": 0.02548,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "severity_dependent_lowpass_rolloff",
+    "mechanism": "The murmur low-pass roll-off is changed from a fixed 500 Hz second-order filter to a fourth-order zero-phase Butterworth filter with a cutoff sampled from severity-specific ranges, reducing excessive high-frequency energy and restoring spectral diversity.",
+    "code_snippet": "b_lp, a_lp = signal.butter(4, lowpass_cutoff / nyq, btype='low')",
+    "source_node": 4,
+    "delta": 0.06476,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "steeper_variable_lowpass_rolloff",
+    "mechanism": "Replacing the fixed 4th-order Butterworth low-pass with a zero-phase 6th/8th-order SOS low-pass and randomizing the cutoff per recording steepens high-frequency attenuation, reducing unrealistic high-frequency noise and zero-crossing rate while increasing spectral diversity.",
+    "code_snippet": "signal.sosfiltfilt(signal.butter(lowpass_order, lowpass_cutoff / nyq, btype='low', output='sos'), murmur)",
+    "source_node": 7,
+    "delta": 0.02786,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

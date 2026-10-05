@@ -1,0 +1,56 @@
+[
+  {
+    "name": "use_pink_noise_for_murmurs",
+    "mechanism": "Replaces white noise with pink noise generated via FFT to more accurately model the spectral roll-off of fluid turbulence.",
+    "code_snippet": "X_pink = X_white / np.sqrt(freqs); noise = np.fft.irfft(X_pink, n=num_samples)",
+    "source_node": 11,
+    "delta": 0.0431,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "add_spectral_resonance",
+    "mechanism": "Applies an IIR peak filter to the synthesized noise to introduce a resonant frequency band, simulating the harsh acoustic qualities of fluid turbulence.",
+    "code_snippet": "b_res, a_res = signal.iirpeak(w0, 1.5)",
+    "source_node": 65,
+    "delta": 0.06238,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "severity_dependent_murmur_spectrum",
+    "mechanism": "Parameterizing the murmur's frequency band and resonance frequency based on disease severity to reflect the physiological acoustic differences between restrictive and unrestrictive defects.",
+    "code_snippet": "if severity < 0.5: murmur_low = np.random.uniform(100, 200); res_freq = np.random.uniform(300, 500)",
+    "source_node": 81,
+    "delta": 0.13405,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "apply_stethoscope_lowpass_filter",
+    "mechanism": "Applies a low-pass filter at 1000 Hz to the synthesized audio to simulate the acoustic attenuation of stethoscope tubing and remove unnatural high frequencies.",
+    "code_snippet": "b_steth, a_steth = signal.butter(2, 1000 / (0.5 * fs), btype='low'); audio = signal.filtfilt(b_steth, a_steth, audio)",
+    "source_node": 83,
+    "delta": 0.03905,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "randomize_heart_sound_durations",
+    "mechanism": "Replaces fixed durations for S1 and S2 heart sounds with uniformly sampled random values to increase temporal diversity in the synthesized cardiac cycles.",
+    "code_snippet": "s1_dur = np.random.uniform(0.06, 0.10) s2_dur = np.random.uniform(0.04, 0.08)",
+    "source_node": 86,
+    "delta": 0.02024,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "physiological_subtype_temporal_envelopes",
+    "mechanism": "Models distinct physiological subtypes by applying different temporal envelopes (plateau with amplitude modulation vs. exponential decrescendo) and adjusting signal duration.",
+    "code_snippet": "if envelope_type == 'plateau': ... elif envelope_type == 'decrescendo': ...",
+    "source_node": 89,
+    "delta": 0.03048,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

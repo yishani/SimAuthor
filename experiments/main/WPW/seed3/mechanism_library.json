@@ -1,0 +1,38 @@
+[
+  {
+    "name": "asymmetric_t_wave_modeling",
+    "mechanism": "Creates a more realistic, asymmetric T wave morphology by summing a primary Gaussian peak with a delayed, wider secondary Gaussian tail.",
+    "code_snippet": "lead_signal += gaussian(t, t_a * 0.4 * beat_var, r_time + t_mu + 0.04, t_sigma * 1.3)",
+    "source_node": 2,
+    "delta": 0.14614,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "reduce_t_wave_bifurcation",
+    "mechanism": "Decreases the temporal delay and width of the secondary Gaussian component in the T wave to maintain asymmetry while preventing artificial bifid morphology.",
+    "code_snippet": "lead_signal += gaussian(t, t_a * 0.4 * beat_var, r_time + t_mu + 0.02, t_sigma * 1.2)",
+    "source_node": 4,
+    "delta": 0.02651,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "add_respiratory_sinus_arrhythmia",
+    "mechanism": "Introduces respiratory sinus arrhythmia by modulating RR intervals with a sinusoidal function tied to the respiratory frequency, enhancing the physiological realism of heart rate variability.",
+    "code_snippet": "rsa_modulation = rng.uniform(0.02, 0.06) * np.sin(2 * np.pi * resp_freq * t_beats)",
+    "source_node": 13,
+    "delta": 0.0549,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "restrict_waveform_parameter_ranges",
+    "mechanism": "Narrows the uniform distribution ranges for wave amplitudes, temporal widths, and baseline noise to prevent the generation of unrealistically extreme or bizarre ECG waveforms.",
+    "code_snippet": "r_a = rng.uniform(0.5, 1.2)",
+    "source_node": 51,
+    "delta": 0.04911,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  }
+]

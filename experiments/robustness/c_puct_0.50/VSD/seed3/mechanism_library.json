@@ -1,0 +1,47 @@
+[
+  {
+    "name": "replace_white_with_pink_noise",
+    "mechanism": "Replaces white noise with pink noise for murmur and ambient background generation to better model fluid turbulence and align spectral distribution.",
+    "code_snippet": "generate_pink_noise(num_samples)",
+    "source_node": 1,
+    "delta": 0.04429,
+    "observation_count": 2,
+    "island": "mfcc"
+  },
+  {
+    "name": "apply_global_lowpass_filter",
+    "mechanism": "Applies a global 4th-order Butterworth low-pass filter to the final assembled signal to simulate the acoustic transmission of the body and stethoscope, removing unnatural high-frequency energy.",
+    "code_snippet": "b_lp, a_lp = signal.butter(4, 1000 / (0.5 * fs), btype='low'); audio = signal.filtfilt(b_lp, a_lp, audio)",
+    "source_node": 30,
+    "delta": 0.025,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "randomize_filter_cutoff_frequencies",
+    "mechanism": "Replaces static filter cutoff frequencies with uniformly sampled random values to increase the spectral diversity of the generated signals.",
+    "code_snippet": "",
+    "source_node": 66,
+    "delta": 0.09262,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "lower_spectral_frequency_bands",
+    "mechanism": "Shifting the fundamental frequencies of heart sounds and global low-pass filter cutoffs to lower ranges reduces unnatural high-frequency brightness and corrects positive shifts in spectral features.",
+    "code_snippet": "s1 = generate_heart_sound(f0=np.random.uniform(40, 90), duration=0.06, fs=fs) * s1_amp",
+    "source_node": 67,
+    "delta": 0.08143,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "variable_ambient_noise_composition",
+    "mechanism": "Blends pink and white noise using a uniformly distributed random ratio to increase the diversity of the background noise profile and zero-crossing rate.",
+    "code_snippet": "ambient = (1.0 - white_ratio) * ambient_pink + white_ratio * ambient_white",
+    "source_node": 70,
+    "delta": 0.05595,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

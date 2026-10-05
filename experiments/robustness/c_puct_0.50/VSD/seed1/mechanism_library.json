@@ -1,0 +1,56 @@
+[
+  {
+    "name": "replace_white_with_pink_noise",
+    "mechanism": "Replaces white noise with pink noise to better model the natural 1/f energy roll-off characteristic of physiological fluid turbulence and sensor noise.",
+    "code_snippet": "generate_pink_noise(N)",
+    "source_node": 1,
+    "delta": 0.05857,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "add_broadband_noise_to_heart_sounds",
+    "mechanism": "Enhances heart sound realism by mixing low-pass filtered pink noise with the base frequency-modulated tonal component to create a broadband thud.",
+    "code_snippet": "sound = env * (tonal + 0.4 * noise)",
+    "source_node": 17,
+    "delta": 0.04071,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "remove_high_frequency_click",
+    "mechanism": "Removed the high-frequency click component from heart sound generation to produce a purely low-frequency broadband transient.",
+    "code_snippet": "sound = env * (tonal + 0.5 * thud_noise)",
+    "source_node": 31,
+    "delta": 0.05714,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "add_beat_to_beat_amplitude_variation",
+    "mechanism": "Introduces stochastic beat-to-beat amplitude modulation for S1 and S2 heart sounds to better simulate natural physiological variability.",
+    "code_snippet": "s1_beat_amp = s1_amp * np.random.uniform(0.85, 1.15)",
+    "source_node": 46,
+    "delta": 0.10738,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "multi_tier_severity_parameterization",
+    "mechanism": "Expands a binary severity model into a three-tier system with distinct amplitude and frequency band parameters to increase physiological diversity.",
+    "code_snippet": "if severity < 0.33: ... elif severity > 0.66: ... else: ...",
+    "source_node": 84,
+    "delta": 0.03643,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "simulate_valve_closure_click",
+    "mechanism": "Simulates the high-frequency click of valve closure by adding a high-pass filtered noise component with a rapid exponential decay to the heart sound.",
+    "code_snippet": "click_filtered = signal.lfilter(b_click, a_click, click_noise); click_env = np.exp(-np.random.uniform(150, 300) * t)",
+    "source_node": 98,
+    "delta": 0.05381,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

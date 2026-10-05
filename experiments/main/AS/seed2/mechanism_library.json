@@ -1,0 +1,47 @@
+[
+  {
+    "name": "simulate_physiology_with_colored_noise",
+    "mechanism": "Replaces white noise with pink (1/f) and brown (1/f^2) noise to more accurately model the spectral characteristics of turbulent fluid dynamics and low-frequency sensor rumble.",
+    "code_snippet": "generate_pink_noise(n_samples) and generate_brown_noise(n_samples)",
+    "source_node": 8,
+    "delta": 0.03701,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "simulate_body_tissue_attenuation",
+    "mechanism": "Applies a low-pass filter with a randomized cutoff frequency to the synthesized audio buffer to simulate the natural attenuation of high frequencies by body tissues.",
+    "code_snippet": "body_lpf_cutoff = np.random.uniform(200.0, 400.0); sos_body = signal.butter(2, body_lpf_cutoff, btype='lowpass', fs=FS_INTERNAL, output='sos'); audio_buffer = signal.sosfiltfilt(sos_body, audio_buffer",
+    "source_node": 14,
+    "delta": 0.1995,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "apply_high_pass_filter",
+    "mechanism": "Applies a high-pass filter to the synthesized audio signal to remove sub-audible DC wander and improve normalization.",
+    "code_snippet": "sos_hpf = signal.butter(2, 25.0, btype='highpass', fs=FS_INTERNAL, output='sos')",
+    "source_node": 29,
+    "delta": 0.06355,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "add_stethoscope_highpass_filter",
+    "mechanism": "Introduces a 25 Hz high-pass filter to simulate a stethoscope diaphragm, removing sub-audible baseline wander to ensure proper relative amplitudes during peak normalization.",
+    "code_snippet": "sos_hpf = signal.butter(2, 25.0, btype='highpass', fs=FS_INTERNAL, output='sos')",
+    "source_node": 34,
+    "delta": 0.1306,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "lower_highpass_filter_cutoff",
+    "mechanism": "Lowers the high-pass filter cutoff frequency from 25 Hz to 5 Hz to preserve low-frequency baseline rumble and reduce the zero-crossing rate.",
+    "code_snippet": "sos_hpf = signal.butter(2, 5.0, btype='highpass', fs=FS_INTERNAL, output='sos')",
+    "source_node": 49,
+    "delta": 0.04141,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

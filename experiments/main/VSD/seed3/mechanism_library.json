@@ -1,0 +1,29 @@
+[
+  {
+    "name": "replace_white_with_pink_noise",
+    "mechanism": "Replaces white noise with pink noise (1/f spectrum) to more accurately model the energy roll-off of fluid turbulence and reduce excessively high zero-crossing rates.",
+    "code_snippet": "X = np.fft.rfft(white); S = np.sqrt(np.arange(1, len(X) + 1)); X_pink = X / S; noise = np.fft.irfft(X_pink, n=N)",
+    "source_node": 1,
+    "delta": 0.06333,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "steepen_noise_spectral_rolloff",
+    "mechanism": "Increases the exponent of the frequency-dependent scaling factor during noise generation to produce a steeper spectral roll-off and reduce excessive high-frequency energy.",
+    "code_snippet": "S = np.power(np.arange(1, len(X) + 1), 0.85)",
+    "source_node": 31,
+    "delta": 0.19167,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "apply_global_lowpass_filter",
+    "mechanism": "Applies a global 4th-order Butterworth low-pass filter at 1200 Hz to the final assembled audio to simulate the acoustic attenuation of body tissue and the stethoscope.",
+    "code_snippet": "b_global, a_global = signal.butter(4, 1200 / (0.5 * fs), btype='low'); audio = signal.filtfilt(b_global, a_global, audio)",
+    "source_node": 40,
+    "delta": 0.12214,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

@@ -1,0 +1,8 @@
+category,n_revisions,pure_scalar_tuning,delta_gain,delta_gain_gt_0_05,triggered_mechanism,structural_lines_added,structural_lines_removed,mean_delta
+mechanism,40,0,37,16,29,1038,779,0.0687
+temporal,23,0,21,6,11,652,598,0.0337
+heterogeneity,20,0,19,6,12,541,445,0.0422
+stochasticity,0,0,0,0,0,0,0,
+recording process,24,0,22,10,16,574,470,0.0511
+calibration,30,27,25,7,13,241,218,0.0329
+other,1,0,1,0,0,40,18,0.0098

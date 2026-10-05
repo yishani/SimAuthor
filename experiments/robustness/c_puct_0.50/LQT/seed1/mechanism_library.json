@@ -1,0 +1,47 @@
+[
+  {
+    "name": "independent_component_amplitude_randomization",
+    "mechanism": "Randomizes the amplitudes of individual waveform components independently rather than applying a global scale, increasing morphological diversity and simulating varying electrical axes.",
+    "code_snippet": "r_amp_II = np.random.uniform(0.8, 2.2); q_amp_II = np.random.uniform(-0.3, -0.05)",
+    "source_node": 1,
+    "delta": 0.19357,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "cardiac_axis_vector_projection",
+    "mechanism": "Calculates multi-lead ECG wave amplitudes by projecting a 2D cardiac electrical vector onto specific lead angles, ensuring physiologically consistent inter-lead relationships.",
+    "code_snippet": "r_amp_I = qrs_mag * np.cos(axis_rad); r_amp_II = qrs_mag * np.cos(axis_rad - np.radians(60))",
+    "source_node": 20,
+    "delta": 0.0366,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "expand_stochastic_parameter_ranges",
+    "mechanism": "Widens the uniform distribution bounds for physiological vectors, waveform morphologies, and noise components to increase inter-sample diversity and reduce mode collapse.",
+    "code_snippet": "axis_deg = np.random.uniform(-30.0, 90.0)",
+    "source_node": 21,
+    "delta": 0.06813,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "randomize_gaussian_waveform_widths",
+    "mechanism": "Replaces fixed standard deviation constants with uniformly sampled random variables for the widths of Gaussian wave components to increase inter-sample morphological diversity.",
+    "code_snippet": "r_sigma = np.random.uniform(0.007, 0.012)",
+    "source_node": 24,
+    "delta": 0.05665,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "randomize_waveform_component_widths",
+    "mechanism": "Introduces stochastic variation to the temporal widths of individual waveform components and inter-wave intervals to increase morphological diversity and reduce inter-sample similarity.",
+    "code_snippet": "p_sigma = np.random.uniform(0.015, 0.025); lead_I += gaussian_wave(t, beat_t - pr_interval, p_sigma, p_amp_I)",
+    "source_node": 40,
+    "delta": 0.07801,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  }
+]

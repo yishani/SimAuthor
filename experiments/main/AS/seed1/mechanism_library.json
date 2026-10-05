@@ -1,0 +1,29 @@
+[
+  {
+    "name": "add_frequency_randomization",
+    "mechanism": "Introduced stochastic variation to heart sound frequencies and murmur filter cutoffs to increase spectral diversity and simulate physiological variability.",
+    "code_snippet": "s1_freq = np.random.uniform(35, 45)",
+    "source_node": 3,
+    "delta": 0.11046,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "add_global_acoustic_lowpass_filter",
+    "mechanism": "Applies a global low-pass filter to the synthesized audio buffer to simulate the acoustic attenuation of high frequencies by body tissue and the stethoscope.",
+    "code_snippet": "sos_body = signal.butter(2, 500, btype='lowpass', fs=FS_INTERNAL, output='sos'); audio_buffer = signal.sosfiltfilt(sos_body, audio_buffer)",
+    "source_node": 5,
+    "delta": 0.06097,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "lower_acoustic_lowpass_cutoff",
+    "mechanism": "Lowered the cutoff frequency of the global acoustic low-pass filter from 500 Hz to 300 Hz to better simulate body tissue attenuation and reduce unrealistic high-frequency zero crossings.",
+    "code_snippet": "sos_body = signal.butter(2, 300, btype='lowpass', fs=FS_INTERNAL, output='sos')",
+    "source_node": 7,
+    "delta": 0.10525,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

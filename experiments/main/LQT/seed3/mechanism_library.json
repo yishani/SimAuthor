@@ -1,0 +1,47 @@
+[
+  {
+    "name": "simulate_t_wave_alternans",
+    "mechanism": "Introduces beat-to-beat alternating T-wave amplitudes for severe cases to better model the physiological complexities of prolonged QT intervals.",
+    "code_snippet": "current_twa = twa_delta * (1 if i % 2 == 0 else -1)",
+    "source_node": 1,
+    "delta": 0.10652,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "dynamic_t_wave_positioning",
+    "mechanism": "Dynamically calculates T-wave width and center position based on the available repolarization time to ensure realistic ST segment lengths.",
+    "code_snippet": "t_duration = t_end - st_start; sigma_t = t_duration / 5.0; dt_t = st_start + 2.5 * sigma_t",
+    "source_node": 4,
+    "delta": 0.10143,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "pink_noise_baseline_wander",
+    "mechanism": "Replaced deterministic sinusoidal baseline wander with a 1/f pink noise model generated via FFT to better simulate the spectral characteristics of physiological baseline drift.",
+    "code_snippet": "def generate_pink_noise(N, fs):",
+    "source_node": 39,
+    "delta": 0.02177,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "zero_dc_component_pink_noise",
+    "mechanism": "Explicitly setting the zero-frequency (DC) component of the Fourier transform to zero prevents massive baseline offsets and scaling artifacts in the generated pink noise.",
+    "code_snippet": "X[0] = 0.0",
+    "source_node": 40,
+    "delta": 0.02948,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "use_brown_noise_baseline",
+    "mechanism": "Replaces pink noise (1/f) with brown noise (1/f^2) by dividing the frequency spectrum by f instead of the square root of f, generating a smoother, more realistic baseline wander without high-frequency artifacts.",
+    "code_snippet": "X = X / f",
+    "source_node": 55,
+    "delta": 0.04018,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  }
+]

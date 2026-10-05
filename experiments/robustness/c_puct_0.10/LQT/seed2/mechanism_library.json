@@ -1,0 +1,29 @@
+[
+  {
+    "name": "multi_frequency_baseline_wander",
+    "mechanism": "Generates a more realistic baseline wander artifact by summing multiple low-frequency sine waves with randomized frequencies, amplitudes, and phases instead of a single sine wave.",
+    "code_snippet": "for _ in range(3): baseline_wander += bw_amp * np.sin(2 * np.pi * bw_freq * t + bw_phase)",
+    "source_node": 1,
+    "delta": 0.11958,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "simplify_lqt1_t_wave_morphology",
+    "mechanism": "Models the LQT1 T-wave as a single, symmetrical, wide Gaussian wave by removing the secondary early ST segment filling component.",
+    "code_snippet": "lead_I += gaussian_wave(t, t_center, t_sigma, t_amp_I + twa_mod_I)",
+    "source_node": 7,
+    "delta": 0.04309,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "adjust_lqt2_notch_blending",
+    "mechanism": "Replaced skewed Gaussian functions with standard Gaussians and reduced the temporal spacing between the two peaks to produce a more realistic blended notch in LQT2 T-waves.",
+    "code_snippet": "lead_I += gaussian_wave(t, t1_center, t1_sigma, t1_amp_I + twa_mod_I)",
+    "source_node": 63,
+    "delta": 0.0342,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  }
+]

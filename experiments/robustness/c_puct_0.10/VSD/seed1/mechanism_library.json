@@ -1,0 +1,38 @@
+[
+  {
+    "name": "model_turbulence_with_pink_noise",
+    "mechanism": "Replaces white noise with pink noise (1/f power spectrum) to more accurately model the natural energy roll-off of fluid turbulence and physiological background noise.",
+    "code_snippet": "def generate_pink_noise(N):",
+    "source_node": 5,
+    "delta": 0.0469,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "physiological_systole_duration_scaling",
+    "mechanism": "Scales the systole duration proportionally to the square root of the RR interval to approximate physiological QT interval scaling.",
+    "code_snippet": "systole_dur = np.random.uniform(0.30, 0.40) * np.sqrt(rr)",
+    "source_node": 32,
+    "delta": 0.05452,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "pink_noise_valve_snap",
+    "mechanism": "Replaces white noise with pink noise and lowers the upper cutoff frequency for valve closure snaps to prevent unrealistic high-frequency artifacts.",
+    "code_snippet": "snap = generate_pink_noise(len(t)) * snap_env",
+    "source_node": 47,
+    "delta": 0.055,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "increase_heart_rate_range",
+    "mechanism": "Increases the simulated heart rate range to better reflect pediatric populations and increase the temporal density of cardiac cycles.",
+    "code_snippet": "hr_mean = np.random.uniform(70, 150)",
+    "source_node": 81,
+    "delta": 0.02119,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

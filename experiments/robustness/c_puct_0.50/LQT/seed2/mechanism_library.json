@@ -1,0 +1,83 @@
+[
+  {
+    "name": "simulate_t_wave_alternans",
+    "mechanism": "Introduces beat-to-beat amplitude alternation in the T-wave to model macroscopic T-wave alternans in severe pathological cases.",
+    "code_snippet": "alt_mod = twa_delta * (-1)**i",
+    "source_node": 1,
+    "delta": 0.08379,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "asymmetric_gaussian_waveform_generation",
+    "mechanism": "Models physiological signals using an asymmetric Gaussian function with independent left and right standard deviations to capture realistic waveform morphology.",
+    "code_snippet": "def asymmetric_gaussian_wave(t, center, sigma_left, sigma_right, amplitude):",
+    "source_node": 5,
+    "delta": 0.02877,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "cardiac_vector_lead_projection",
+    "mechanism": "Derives multi-lead ECG wave amplitudes by projecting a single 2D cardiac vector's magnitude and angle onto specific lead axes to ensure physiological consistency.",
+    "code_snippet": "def project_lead(magnitude, angle, lead_angle): return magnitude * np.cos(angle - lead_angle)",
+    "source_node": 6,
+    "delta": 0.03237,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "add_repolarization_lability",
+    "mechanism": "Introduces stochastic beat-to-beat variation in the QT interval to simulate natural repolarization lability and increase inter-beat diversity.",
+    "code_snippet": "qt = qt_base + np.random.normal(0, 0.005)",
+    "source_node": 7,
+    "delta": 0.05984,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "expand_parameter_sampling_ranges",
+    "mechanism": "Broadens the uniform distribution bounds for physiological parameters, wave morphologies, and noise artifacts to increase inter-sample diversity and restore natural variance.",
+    "code_snippet": "np.random.uniform(50.0, 95.0)",
+    "source_node": 15,
+    "delta": 0.07066,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "widen_qrs_reduce_r_amplitude",
+    "mechanism": "Widened the QRS complex components by increasing their standard deviations and reduced the R-wave amplitude to prevent the QRS from dominating the signal energy, thereby restoring the relative prominence of the T-wave.",
+    "code_snippet": "r_mag = np.random.uniform(0.7, 1.6); r_sigma = np.random.uniform(0.010, 0.014)",
+    "source_node": 27,
+    "delta": 0.03882,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "dynamic_t_wave_width_constraint",
+    "mechanism": "Implements a dynamic scaling constraint on T-wave width parameters to ensure the T-wave fits within the available ST-T window, preventing unrealistic overlap with the QRS complex.",
+    "code_snippet": "total_width = 2.5 * (sigma_t_left + sigma_t_right) max_width = qt_base - 0.095 if total_width > max_width and max_width > 0: scale = max_width / total_width sigma_t_left *= scale sigma_t_right *= scal",
+    "source_node": 35,
+    "delta": 0.07687,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "constrain_t_wave_axis",
+    "mechanism": "Clips the T-wave cardiac axis angle to a physiological range to prevent unrealistic T-wave inversions in specific leads.",
+    "code_snippet": "t_angle = np.clip(t_angle, -np.pi/12, np.pi/2.5)",
+    "source_node": 46,
+    "delta": 0.07801,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "add_respiratory_amplitude_modulation",
+    "mechanism": "Applies a sinusoidal multiplier driven by the respiratory rate to the amplitudes of all ECG waves to simulate respiratory-induced variations in the cardiac electrical axis and thoracic impedance.",
+    "code_snippet": "resp_mod = 1.0 + rsa_amp * 1.5 * np.sin(2 * np.pi * resp_rate * beat_t)",
+    "source_node": 81,
+    "delta": 0.03964,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  }
+]

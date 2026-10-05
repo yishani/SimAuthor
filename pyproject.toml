@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simauthor"
+version = "1.0.0"
+description = "Persistent authoring of executable scientific simulators with foundation models"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+  { name = "Yishan Wang" }, { name = "Ran Piao" },
+  { name = "Mathias Funk" }, { name = "Aaqib Saeed" },
+]
+requires-python = ">=3.9"
+# Core: enough to run the released simulators and the PPG evaluator.
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+
+[project.optional-dependencies]
+audio = ["librosa>=0.10", "soundfile>=0.12"]          # MFCC evaluator
+llm = ["google-genai>=1.0", "openai>=1.30", "matplotlib>=3.7"]   # authoring: model backends + visual feedback
+encoders = ["torch>=2.0"]                               # ECGFounder / PaPaGei evaluators
+experiments = ["pandas>=2.0", "scikit-learn>=1.3"]      # experiments/generalization
+all = ["simauthor[audio,llm,encoders,experiments]"]
+
+[project.scripts]
+simauthor = "simauthor.cli:main"
+
+[project.urls]
+Homepage = "https://yishani.github.io/SimAuthor/"
+Repository = "https://github.com/yishani/SimAuthor"
+
+[tool.setuptools.packages.find]
+include = ["simauthor*"]
+
+[tool.setuptools.package-data]
+simauthor = ["prompts/**/*.md", "simulators/*/*.py", "simulators/README.md"]

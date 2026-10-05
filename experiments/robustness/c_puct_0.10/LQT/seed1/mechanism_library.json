@@ -1,0 +1,38 @@
+[
+  {
+    "name": "preserve_electrical_axis",
+    "mechanism": "Scales the amplitude of secondary ECG leads relative to a primary lead using a consistent axis factor to maintain a physiological electrical axis across all waveform components.",
+    "code_snippet": "axis_factor = np.random.uniform(0.50, 0.85); r_amp_I = r_amp_II * axis_factor",
+    "source_node": 1,
+    "delta": 0.10295,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "stochastic_u_wave_generation",
+    "mechanism": "Introduces a stochastically generated U-wave following the T-wave to increase physiological diversity in the synthetic ECG signal.",
+    "code_snippet": "if has_u_wave: lead_I += gaussian_wave(t, beat_t + u_dt, u_sigma, u_amp_I)",
+    "source_node": 2,
+    "delta": 0.0501,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "stochastic_qrs_component_generation",
+    "mechanism": "Introduces probabilistic thresholds for Q and S wave generation to increase inter-sample morphological diversity and simulate realistic variations in QRS complexes.",
+    "code_snippet": "q_amp_II = np.random.uniform(0.0, -0.25) if np.random.rand() > 0.3 else 0.0",
+    "source_node": 3,
+    "delta": 0.02238,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "cardiac_vector_projection_model",
+    "mechanism": "Calculates multi-lead ECG wave amplitudes by projecting 2D cardiac electrical vectors onto specific lead angles rather than using fixed scalar ratios.",
+    "code_snippet": "p_amp_I = p_mag * np.cos(p_axis - angle_I)",
+    "source_node": 4,
+    "delta": 0.05183,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  }
+]

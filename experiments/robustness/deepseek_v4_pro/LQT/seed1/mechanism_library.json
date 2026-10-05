@@ -1,0 +1,47 @@
+[
+  {
+    "name": "subject_specific_conduction_timing",
+    "mechanism": "Replaces fixed P/QRS timing constants with per-subject sampled PR interval, QRS duration, and P-wave duration, then scales QRS component widths/offsets and aligns P and T waves to the resulting QRS onset to reduce inter-sample similarity.",
+    "code_snippet": "pr_interval = rng.uniform(0.12, 0.20); qrs_duration = rng.uniform(0.080, 0.100); p_duration = rng.uniform(0.080, 0.120); qrs_scale = qrs_duration / 0.110; p_sigma = p_duration / 4.0; p_center_offset =",
+    "source_node": 2,
+    "delta": 0.06917,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "broaden_t_wave_morphology_sampling",
+    "mechanism": "Widens subtype-specific T-wave Gaussian component parameter ranges for LQT1 shoulder delays/widths, LQT2 notch separations and amplitude ratios, and LQT3 late-onset narrowness, increasing generated morphological variability and embedding spread.",
+    "code_snippet": "_sample_lqt_t_components uses wider uniform ranges, normalized random fractions for LQT2 amplitudes, and lower/sigma ranges for LQT3",
+    "source_node": 21,
+    "delta": 0.02264,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "t_peak_anchor_width_constraint",
+    "mechanism": "Anchors T-wave component centers to a subtype-specific fraction of the QT interval and clamps component delays and widths so the T-wave onset remains after QRS end, preventing broad T-waves from encroaching on the QRS or ST segment.",
+    "code_snippet": "center_ii = t_peak_time_ii - delay_ii; sigma_left_beat = max(min(raw_sigma_left_ii, max_sigma_left_ii), min_t_sigma)",
+    "source_node": 31,
+    "delta": 0.03622,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "lead_specific_acquisition_artifacts",
+    "mechanism": "The child generates independent baseline wander, powerline interference, and high-frequency noise for each lead with broader amplitudes, reducing artificial cross-lead redundancy and increasing inter-subject variability.",
+    "code_snippet": "lead_I += baseline_wander_I + powerline_I + hf_noise_I; lead_II += baseline_wander_II + powerline_II + hf_noise_II",
+    "source_node": 43,
+    "delta": 0.02852,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "independent_lead_qrs_morphology",
+    "mechanism": "Sampling independent physiologically plausible QRS morphologies for Lead I and Lead II decouples their high-energy vectors and widens the embedding spread without prolonging QRS duration.",
+    "code_snippet": "_sample_qrs_components(rng, qrs_onset, qrs_end, r_amp, patterns=None, probs=None)",
+    "source_node": 81,
+    "delta": 0.03321,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  }
+]

@@ -1,0 +1,817 @@
+{
+  "condition": "WPW Syndrome",
+  "signal_modality": "ecg",
+  "island": "ecg_founder",
+  "num_samples": 100,
+  "nodes": [
+    {
+      "script_idx": 0,
+      "score": 0.363870164202168,
+      "visits": 100,
+      "parent": null,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.3639  |  ED (unbiased): 0.262235  |  ED_eff: 0.262235  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.6361 |     0.0000 |  -0.6361 |\n  *ED_unbiased = 0.262235 (eff = 0.262235).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6770 |     0.7343 |  +0.0573 |\n  *Generated embeddings are +0.057 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.4921 |     1.0000 |  +0.5079 |\n  *Gen spread is 0.49\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6739 |     0.5314 |  -0.1425 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.364).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_000.png"
+    },
+    {
+      "script_idx": 1,
+      "score": 0.33116745089688476,
+      "visits": 1,
+      "parent": 0,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.3312  |  ED (unbiased): 0.302943  |  ED_eff: 0.302943  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.6688 |     0.0000 |  -0.6688 |\n  *ED_unbiased = 0.302943 (eff = 0.302943).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6572 |     0.7343 |  +0.0771 |\n  *Generated embeddings are +0.077 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.4568 |     1.0000 |  +0.5432 |\n  *Gen spread is 0.46\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6842 |     0.5314 |  -0.1528 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.331).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_001.png"
+    },
+    {
+      "script_idx": 2,
+      "score": 0.5100066624040595,
+      "visits": 99,
+      "parent": 0,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5100  |  ED (unbiased): 0.144114  |  ED_eff: 0.144114  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4900 |     0.0000 |  -0.4900 |\n  *ED_unbiased = 0.144114 (eff = 0.144114).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7117 |     0.7343 |  +0.0226 |\n  *Generated embeddings are +0.023 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6438 |     1.0000 |  +0.3562 |\n  *Gen spread is 0.64\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6247 |     0.5314 |  -0.0933 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.510).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_002.png"
+    },
+    {
+      "script_idx": 3,
+      "score": 0.48695081424123593,
+      "visits": 1,
+      "parent": 2,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4870  |  ED (unbiased): 0.158039  |  ED_eff: 0.158039  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5130 |     0.0000 |  -0.5130 |\n  *ED_unbiased = 0.158039 (eff = 0.158039).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6782 |     0.7343 |  +0.0561 |\n  *Generated embeddings are +0.056 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6826 |     1.0000 |  +0.3174 |\n  *Gen spread is 0.68\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5998 |     0.5314 |  -0.0684 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.487).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_003.png"
+    },
+    {
+      "script_idx": 4,
+      "score": 0.5365199823133077,
+      "visits": 97,
+      "parent": 2,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5365  |  ED (unbiased): 0.129580  |  ED_eff: 0.129580  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4635 |     0.0000 |  -0.4635 |\n  *ED_unbiased = 0.129580 (eff = 0.129580).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6774 |     0.7343 |  +0.0569 |\n  *Generated embeddings are +0.057 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6974 |     1.0000 |  +0.3026 |\n  *Gen spread is 0.70\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5727 |     0.5314 |  -0.0413 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.537).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_004.png"
+    },
+    {
+      "script_idx": 5,
+      "score": 0.520980482909383,
+      "visits": 1,
+      "parent": 4,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5210  |  ED (unbiased): 0.137919  |  ED_eff: 0.137919  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4790 |     0.0000 |  -0.4790 |\n  *ED_unbiased = 0.137919 (eff = 0.137919).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6942 |     0.7343 |  +0.0401 |\n  *Generated embeddings are +0.040 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6927 |     1.0000 |  +0.3073 |\n  *Gen spread is 0.69\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6028 |     0.5314 |  -0.0714 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.521).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_005.png"
+    },
+    {
+      "script_idx": 6,
+      "score": 0.38271354528996915,
+      "visits": 1,
+      "parent": 4,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.3827  |  ED (unbiased): 0.241938  |  ED_eff: 0.241938  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.6173 |     0.0000 |  -0.6173 |\n  *ED_unbiased = 0.241938 (eff = 0.241938).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6245 |     0.7343 |  +0.1098 |\n  *Generated embeddings are +0.110 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6330 |     1.0000 |  +0.3670 |\n  *Gen spread is 0.63\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5977 |     0.5314 |  -0.0663 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.383).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_006.png"
+    },
+    {
+      "script_idx": 7,
+      "score": 0.39352663809468963,
+      "visits": 1,
+      "parent": 4,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.3935  |  ED (unbiased): 0.231169  |  ED_eff: 0.231169  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.6065 |     0.0000 |  -0.6065 |\n  *ED_unbiased = 0.231169 (eff = 0.231169).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6651 |     0.7343 |  +0.0693 |\n  *Generated embeddings are +0.069 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7705 |     1.0000 |  +0.2295 |\n  *Gen spread is 0.77\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6397 |     0.5314 |  -0.1083 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.394).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_007.png"
+    },
+    {
+      "script_idx": 8,
+      "score": 0.372306774192787,
+      "visits": 1,
+      "parent": 4,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.3723  |  ED (unbiased): 0.252894  |  ED_eff: 0.252894  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.6277 |     0.0000 |  -0.6277 |\n  *ED_unbiased = 0.252894 (eff = 0.252894).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7151 |     0.7343 |  +0.0192 |\n  *Generated embeddings are +0.019 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5802 |     1.0000 |  +0.4198 |\n  *Gen spread is 0.58\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.7159 |     0.5314 |  -0.1845 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.372).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_008.png"
+    },
+    {
+      "script_idx": 9,
+      "score": 0.4896809035943815,
+      "visits": 1,
+      "parent": 4,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4897  |  ED (unbiased): 0.156322  |  ED_eff: 0.156322  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5103 |     0.0000 |  -0.5103 |\n  *ED_unbiased = 0.156322 (eff = 0.156322).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7162 |     0.7343 |  +0.0181 |\n  *Generated embeddings are +0.018 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5933 |     1.0000 |  +0.4067 |\n  *Gen spread is 0.59\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6458 |     0.5314 |  -0.1144 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.490).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_009.png"
+    },
+    {
+      "script_idx": 10,
+      "score": 0.392514956959645,
+      "visits": 1,
+      "parent": 4,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.3925  |  ED (unbiased): 0.232151  |  ED_eff: 0.232151  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.6075 |     0.0000 |  -0.6075 |\n  *ED_unbiased = 0.232151 (eff = 0.232151).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6470 |     0.7343 |  +0.0873 |\n  *Generated embeddings are +0.087 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6214 |     1.0000 |  +0.3786 |\n  *Gen spread is 0.62\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6188 |     0.5314 |  -0.0874 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.393).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_010.png"
+    },
+    {
+      "script_idx": 11,
+      "score": 0.48753368686077675,
+      "visits": 1,
+      "parent": 4,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4875  |  ED (unbiased): 0.157671  |  ED_eff: 0.157671  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5125 |     0.0000 |  -0.5125 |\n  *ED_unbiased = 0.157671 (eff = 0.157671).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7214 |     0.7343 |  +0.0129 |\n  *Generated embeddings are +0.013 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7259 |     1.0000 |  +0.2741 |\n  *Gen spread is 0.73\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6526 |     0.5314 |  -0.1212 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.488).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_011.png"
+    },
+    {
+      "script_idx": 12,
+      "score": 0.45137005766343613,
+      "visits": 1,
+      "parent": 4,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4514  |  ED (unbiased): 0.182322  |  ED_eff: 0.182322  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5486 |     0.0000 |  -0.5486 |\n  *ED_unbiased = 0.182322 (eff = 0.182322).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6506 |     0.7343 |  +0.0837 |\n  *Generated embeddings are +0.084 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7013 |     1.0000 |  +0.2987 |\n  *Gen spread is 0.70\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5839 |     0.5314 |  -0.0525 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.451).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_012.png"
+    },
+    {
+      "script_idx": 13,
+      "score": 0.5914156387627489,
+      "visits": 88,
+      "parent": 4,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5914  |  ED (unbiased): 0.103629  |  ED_eff: 0.103629  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4086 |     0.0000 |  -0.4086 |\n  *ED_unbiased = 0.103629 (eff = 0.103629).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7092 |     0.7343 |  +0.0251 |\n  *Generated embeddings are +0.025 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6157 |     1.0000 |  +0.3843 |\n  *Gen spread is 0.62\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5915 |     0.5314 |  -0.0601 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.591).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_013.png"
+    },
+    {
+      "script_idx": 14,
+      "score": 0.3957192600136338,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.3957  |  ED (unbiased): 0.229057  |  ED_eff: 0.229057  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.6043 |     0.0000 |  -0.6043 |\n  *ED_unbiased = 0.229057 (eff = 0.229057).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6876 |     0.7343 |  +0.0467 |\n  *Generated embeddings are +0.047 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6879 |     1.0000 |  +0.3121 |\n  *Gen spread is 0.69\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6662 |     0.5314 |  -0.1348 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.396).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_014.png"
+    },
+    {
+      "script_idx": 15,
+      "score": 0.4353351672155717,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4353  |  ED (unbiased): 0.194562  |  ED_eff: 0.194562  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5647 |     0.0000 |  -0.5647 |\n  *ED_unbiased = 0.194562 (eff = 0.194562).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7028 |     0.7343 |  +0.0315 |\n  *Generated embeddings are +0.032 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6077 |     1.0000 |  +0.3923 |\n  *Gen spread is 0.61\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6579 |     0.5314 |  -0.1265 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.435).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_015.png"
+    },
+    {
+      "script_idx": 16,
+      "score": 0.41583892139699585,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4158  |  ED (unbiased): 0.210717  |  ED_eff: 0.210717  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5842 |     0.0000 |  -0.5842 |\n  *ED_unbiased = 0.210717 (eff = 0.210717).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6588 |     0.7343 |  +0.0755 |\n  *Generated embeddings are +0.075 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6874 |     1.0000 |  +0.3126 |\n  *Gen spread is 0.69\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6180 |     0.5314 |  -0.0866 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.416).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_016.png"
+    },
+    {
+      "script_idx": 17,
+      "score": 0.4728076364332247,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4728  |  ED (unbiased): 0.167254  |  ED_eff: 0.167254  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5272 |     0.0000 |  -0.5272 |\n  *ED_unbiased = 0.167254 (eff = 0.167254).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6785 |     0.7343 |  +0.0558 |\n  *Generated embeddings are +0.056 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6953 |     1.0000 |  +0.3047 |\n  *Gen spread is 0.70\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6060 |     0.5314 |  -0.0746 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.473).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_017.png"
+    },
+    {
+      "script_idx": 18,
+      "score": 0.529271462867237,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5293  |  ED (unbiased): 0.133408  |  ED_eff: 0.133408  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4707 |     0.0000 |  -0.4707 |\n  *ED_unbiased = 0.133408 (eff = 0.133408).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7008 |     0.7343 |  +0.0335 |\n  *Generated embeddings are +0.034 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5656 |     1.0000 |  +0.4344 |\n  *Gen spread is 0.57\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6092 |     0.5314 |  -0.0778 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.529).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_018.png"
+    },
+    {
+      "script_idx": 19,
+      "score": 0.3985998980962712,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.3986  |  ED (unbiased): 0.226317  |  ED_eff: 0.226317  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.6014 |     0.0000 |  -0.6014 |\n  *ED_unbiased = 0.226317 (eff = 0.226317).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6602 |     0.7343 |  +0.0742 |\n  *Generated embeddings are +0.074 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7237 |     1.0000 |  +0.2763 |\n  *Gen spread is 0.72\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6290 |     0.5314 |  -0.0976 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.399).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_019.png"
+    },
+    {
+      "script_idx": 20,
+      "score": 0.44254358089088847,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4425  |  ED (unbiased): 0.188950  |  ED_eff: 0.188950  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5575 |     0.0000 |  -0.5575 |\n  *ED_unbiased = 0.188950 (eff = 0.188950).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6961 |     0.7343 |  +0.0382 |\n  *Generated embeddings are +0.038 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7005 |     1.0000 |  +0.2995 |\n  *Gen spread is 0.70\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6447 |     0.5314 |  -0.1133 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.443).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_020.png"
+    },
+    {
+      "script_idx": 21,
+      "score": 0.4669212228393208,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4669  |  ED (unbiased): 0.171253  |  ED_eff: 0.171253  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5331 |     0.0000 |  -0.5331 |\n  *ED_unbiased = 0.171253 (eff = 0.171253).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6623 |     0.7343 |  +0.0720 |\n  *Generated embeddings are +0.072 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6893 |     1.0000 |  +0.3107 |\n  *Gen spread is 0.69\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5881 |     0.5314 |  -0.0567 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.467).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_021.png"
+    },
+    {
+      "script_idx": 22,
+      "score": 0.5216018365484796,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5216  |  ED (unbiased): 0.137576  |  ED_eff: 0.137576  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4784 |     0.0000 |  -0.4784 |\n  *ED_unbiased = 0.137576 (eff = 0.137576).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6893 |     0.7343 |  +0.0450 |\n  *Generated embeddings are +0.045 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5796 |     1.0000 |  +0.4204 |\n  *Gen spread is 0.58\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5952 |     0.5314 |  -0.0638 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.522).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_022.png"
+    },
+    {
+      "script_idx": 23,
+      "score": 0.5354335356070842,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5354  |  ED (unbiased): 0.130147  |  ED_eff: 0.130147  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4646 |     0.0000 |  -0.4646 |\n  *ED_unbiased = 0.130147 (eff = 0.130147).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6973 |     0.7343 |  +0.0370 |\n  *Generated embeddings are +0.037 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6057 |     1.0000 |  +0.3943 |\n  *Gen spread is 0.61\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6001 |     0.5314 |  -0.0687 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.535).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_023.png"
+    },
+    {
+      "script_idx": 24,
+      "score": 0.5131203198726441,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5131  |  ED (unbiased): 0.142329  |  ED_eff: 0.142329  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4869 |     0.0000 |  -0.4869 |\n  *ED_unbiased = 0.142329 (eff = 0.142329).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6645 |     0.7343 |  +0.0698 |\n  *Generated embeddings are +0.070 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6801 |     1.0000 |  +0.3199 |\n  *Gen spread is 0.68\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5672 |     0.5314 |  -0.0358 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.513).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_024.png"
+    },
+    {
+      "script_idx": 25,
+      "score": 0.46927166778103796,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4693  |  ED (unbiased): 0.169644  |  ED_eff: 0.169644  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5307 |     0.0000 |  -0.5307 |\n  *ED_unbiased = 0.169644 (eff = 0.169644).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6913 |     0.7343 |  +0.0430 |\n  *Generated embeddings are +0.043 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6617 |     1.0000 |  +0.3383 |\n  *Gen spread is 0.66\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6272 |     0.5314 |  -0.0958 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.469).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_025.png"
+    },
+    {
+      "script_idx": 26,
+      "score": 0.5055390646286473,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5055  |  ED (unbiased): 0.146713  |  ED_eff: 0.146713  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4945 |     0.0000 |  -0.4945 |\n  *ED_unbiased = 0.146713 (eff = 0.146713).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6666 |     0.7343 |  +0.0677 |\n  *Generated embeddings are +0.068 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7349 |     1.0000 |  +0.2651 |\n  *Gen spread is 0.73\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5731 |     0.5314 |  -0.0417 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.506).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_026.png"
+    },
+    {
+      "script_idx": 27,
+      "score": 0.5266677028891324,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5267  |  ED (unbiased): 0.134810  |  ED_eff: 0.134810  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4733 |     0.0000 |  -0.4733 |\n  *ED_unbiased = 0.134810 (eff = 0.134810).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6834 |     0.7343 |  +0.0509 |\n  *Generated embeddings are +0.051 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7154 |     1.0000 |  +0.2846 |\n  *Gen spread is 0.72\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5833 |     0.5314 |  -0.0519 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.527).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_027.png"
+    },
+    {
+      "script_idx": 28,
+      "score": 0.5714498181655512,
+      "visits": 2,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5714  |  ED (unbiased): 0.112490  |  ED_eff: 0.112490  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4286 |     0.0000 |  -0.4286 |\n  *ED_unbiased = 0.112490 (eff = 0.112490).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7538 |     0.7343 |  -0.0195 |\n  *Generated embeddings are -0.019 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5101 |     1.0000 |  +0.4899 |\n  *Gen spread is 0.51\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6648 |     0.5314 |  -0.1334 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.571).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_028.png"
+    },
+    {
+      "script_idx": 29,
+      "score": 0.38393371728800507,
+      "visits": 1,
+      "parent": 28,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.3839  |  ED (unbiased): 0.240692  |  ED_eff: 0.240692  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.6161 |     0.0000 |  -0.6161 |\n  *ED_unbiased = 0.240692 (eff = 0.240692).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6769 |     0.7343 |  +0.0574 |\n  *Generated embeddings are +0.057 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7597 |     1.0000 |  +0.2403 |\n  *Gen spread is 0.76\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6669 |     0.5314 |  -0.1355 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.384).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_029.png"
+    },
+    {
+      "script_idx": 30,
+      "score": 0.47920515800360963,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4792  |  ED (unbiased): 0.163018  |  ED_eff: 0.163018  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5208 |     0.0000 |  -0.5208 |\n  *ED_unbiased = 0.163018 (eff = 0.163018).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6963 |     0.7343 |  +0.0380 |\n  *Generated embeddings are +0.038 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7469 |     1.0000 |  +0.2531 |\n  *Gen spread is 0.75\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6255 |     0.5314 |  -0.0941 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.479).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_030.png"
+    },
+    {
+      "script_idx": 31,
+      "score": 0.4414103086855396,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4414  |  ED (unbiased): 0.189820  |  ED_eff: 0.189820  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5586 |     0.0000 |  -0.5586 |\n  *ED_unbiased = 0.189820 (eff = 0.189820).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6457 |     0.7343 |  +0.0886 |\n  *Generated embeddings are +0.089 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.8572 |     1.0000 |  +0.1428 |\n  *Gen spread is 0.86\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5851 |     0.5314 |  -0.0537 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.441).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_031.png"
+    },
+    {
+      "script_idx": 32,
+      "score": 0.4441657557635668,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4442  |  ED (unbiased): 0.187712  |  ED_eff: 0.187712  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5558 |     0.0000 |  -0.5558 |\n  *ED_unbiased = 0.187712 (eff = 0.187712).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6602 |     0.7343 |  +0.0741 |\n  *Generated embeddings are +0.074 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6212 |     1.0000 |  +0.3788 |\n  *Gen spread is 0.62\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5992 |     0.5314 |  -0.0678 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.444).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_032.png"
+    },
+    {
+      "script_idx": 33,
+      "score": 0.49960482802372935,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4996  |  ED (unbiased): 0.150237  |  ED_eff: 0.150237  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5004 |     0.0000 |  -0.5004 |\n  *ED_unbiased = 0.150237 (eff = 0.150237).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7086 |     0.7343 |  +0.0257 |\n  *Generated embeddings are +0.026 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5132 |     1.0000 |  +0.4868 |\n  *Gen spread is 0.51\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6338 |     0.5314 |  -0.1024 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.500).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_033.png"
+    },
+    {
+      "script_idx": 34,
+      "score": 0.49796909885336105,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4980  |  ED (unbiased): 0.151224  |  ED_eff: 0.151224  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5020 |     0.0000 |  -0.5020 |\n  *ED_unbiased = 0.151224 (eff = 0.151224).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6833 |     0.7343 |  +0.0510 |\n  *Generated embeddings are +0.051 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6533 |     1.0000 |  +0.3467 |\n  *Gen spread is 0.65\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5998 |     0.5314 |  -0.0684 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.498).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_034.png"
+    },
+    {
+      "script_idx": 35,
+      "score": 0.4778183687361451,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4778  |  ED (unbiased): 0.163927  |  ED_eff: 0.163927  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5222 |     0.0000 |  -0.5222 |\n  *ED_unbiased = 0.163927 (eff = 0.163927).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6757 |     0.7343 |  +0.0586 |\n  *Generated embeddings are +0.059 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6123 |     1.0000 |  +0.3877 |\n  *Gen spread is 0.61\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5964 |     0.5314 |  -0.0650 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.478).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_035.png"
+    },
+    {
+      "script_idx": 36,
+      "score": 0.4794774847986067,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4795  |  ED (unbiased): 0.162841  |  ED_eff: 0.162841  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5205 |     0.0000 |  -0.5205 |\n  *ED_unbiased = 0.162841 (eff = 0.162841).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6802 |     0.7343 |  +0.0542 |\n  *Generated embeddings are +0.054 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6595 |     1.0000 |  +0.3405 |\n  *Gen spread is 0.66\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6023 |     0.5314 |  -0.0709 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.479).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_036.png"
+    },
+    {
+      "script_idx": 37,
+      "score": 0.5164936234781837,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5165  |  ED (unbiased): 0.140420  |  ED_eff: 0.140420  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4835 |     0.0000 |  -0.4835 |\n  *ED_unbiased = 0.140420 (eff = 0.140420).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6956 |     0.7343 |  +0.0387 |\n  *Generated embeddings are +0.039 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6962 |     1.0000 |  +0.3038 |\n  *Gen spread is 0.70\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6041 |     0.5314 |  -0.0727 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.516).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_037.png"
+    },
+    {
+      "script_idx": 38,
+      "score": 0.4818086899788138,
+      "visits": 1,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4818  |  ED (unbiased): 0.161327  |  ED_eff: 0.161327  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5182 |     0.0000 |  -0.5182 |\n  *ED_unbiased = 0.161327 (eff = 0.161327).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6599 |     0.7343 |  +0.0744 |\n  *Generated embeddings are +0.074 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6815 |     1.0000 |  +0.3185 |\n  *Gen spread is 0.68\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5737 |     0.5314 |  -0.0423 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.482).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_038.png"
+    },
+    {
+      "script_idx": 39,
+      "score": 0.6019507921529872,
+      "visits": 62,
+      "parent": 13,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.6020  |  ED (unbiased): 0.099190  |  ED_eff: 0.099190  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.3980 |     0.0000 |  -0.3980 |\n  *ED_unbiased = 0.099190 (eff = 0.099190).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7041 |     0.7343 |  +0.0302 |\n  *Generated embeddings are +0.030 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5735 |     1.0000 |  +0.4265 |\n  *Gen spread is 0.57\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5836 |     0.5314 |  -0.0522 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.602).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_039.png"
+    },
+    {
+      "script_idx": 40,
+      "score": 0.519996929750658,
+      "visits": 1,
+      "parent": 39,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5200  |  ED (unbiased): 0.138463  |  ED_eff: 0.138463  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4800 |     0.0000 |  -0.4800 |\n  *ED_unbiased = 0.138463 (eff = 0.138463).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7121 |     0.7343 |  +0.0222 |\n  *Generated embeddings are +0.022 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7205 |     1.0000 |  +0.2795 |\n  *Gen spread is 0.72\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6314 |     0.5314 |  -0.1000 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.520).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_040.png"
+    },
+    {
+      "script_idx": 41,
+      "score": 0.5955155968537731,
+      "visits": 1,
+      "parent": 39,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5955  |  ED (unbiased): 0.101883  |  ED_eff: 0.101883  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4045 |     0.0000 |  -0.4045 |\n  *ED_unbiased = 0.101883 (eff = 0.101883).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7212 |     0.7343 |  +0.0131 |\n  *Generated embeddings are +0.013 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5697 |     1.0000 |  +0.4303 |\n  *Gen spread is 0.57\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6105 |     0.5314 |  -0.0791 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.596).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_041.png"
+    },
+    {
+      "script_idx": 42,
+      "score": 0.5981924626075905,
+      "visits": 2,
+      "parent": 39,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5982  |  ED (unbiased): 0.100755  |  ED_eff: 0.100755  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4018 |     0.0000 |  -0.4018 |\n  *ED_unbiased = 0.100755 (eff = 0.100755).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7373 |     0.7343 |  -0.0030 |\n  *Generated embeddings are -0.003 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5693 |     1.0000 |  +0.4307 |\n  *Gen spread is 0.57\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6297 |     0.5314 |  -0.0983 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.598).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_042.png"
+    },
+    {
+      "script_idx": 43,
+      "score": 0.511098048156149,
+      "visits": 1,
+      "parent": 42,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5111  |  ED (unbiased): 0.143486  |  ED_eff: 0.143486  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4889 |     0.0000 |  -0.4889 |\n  *ED_unbiased = 0.143486 (eff = 0.143486).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7183 |     0.7343 |  +0.0160 |\n  *Generated embeddings are +0.016 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6154 |     1.0000 |  +0.3846 |\n  *Gen spread is 0.62\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6399 |     0.5314 |  -0.1085 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.511).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_043.png"
+    },
+    {
+      "script_idx": 44,
+      "score": 0.5750967585914067,
+      "visits": 1,
+      "parent": 39,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5751  |  ED (unbiased): 0.110826  |  ED_eff: 0.110826  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4249 |     0.0000 |  -0.4249 |\n  *ED_unbiased = 0.110826 (eff = 0.110826).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7233 |     0.7343 |  +0.0111 |\n  *Generated embeddings are +0.011 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5609 |     1.0000 |  +0.4391 |\n  *Gen spread is 0.56\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6197 |     0.5314 |  -0.0883 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.575).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_044.png"
+    },
+    {
+      "script_idx": 45,
+      "score": 0.4807499185087243,
+      "visits": 1,
+      "parent": 39,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4807  |  ED (unbiased): 0.162013  |  ED_eff: 0.162013  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5193 |     0.0000 |  -0.5193 |\n  *ED_unbiased = 0.162013 (eff = 0.162013).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7198 |     0.7343 |  +0.0145 |\n  *Generated embeddings are +0.015 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5773 |     1.0000 |  +0.4227 |\n  *Gen spread is 0.58\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6539 |     0.5314 |  -0.1225 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.481).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_045.png"
+    },
+    {
+      "script_idx": 46,
+      "score": 0.4718394476171253,
+      "visits": 1,
+      "parent": 39,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4718  |  ED (unbiased): 0.167905  |  ED_eff: 0.167905  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5282 |     0.0000 |  -0.5282 |\n  *ED_unbiased = 0.167905 (eff = 0.167905).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7330 |     0.7343 |  +0.0013 |\n  *Generated embeddings are +0.001 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5635 |     1.0000 |  +0.4365 |\n  *Gen spread is 0.56\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6864 |     0.5314 |  -0.1550 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.472).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_046.png"
+    },
+    {
+      "script_idx": 47,
+      "score": 0.5393962806220102,
+      "visits": 1,
+      "parent": 39,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5394  |  ED (unbiased): 0.128089  |  ED_eff: 0.128089  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4606 |     0.0000 |  -0.4606 |\n  *ED_unbiased = 0.128089 (eff = 0.128089).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7365 |     0.7343 |  -0.0022 |\n  *Generated embeddings are -0.002 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6176 |     1.0000 |  +0.3824 |\n  *Gen spread is 0.62\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6559 |     0.5314 |  -0.1245 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.539).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_047.png"
+    },
+    {
+      "script_idx": 48,
+      "score": 0.5664847812067008,
+      "visits": 1,
+      "parent": 39,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5665  |  ED (unbiased): 0.114791  |  ED_eff: 0.114791  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4335 |     0.0000 |  -0.4335 |\n  *ED_unbiased = 0.114791 (eff = 0.114791).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7525 |     0.7343 |  -0.0182 |\n  *Generated embeddings are -0.018 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5025 |     1.0000 |  +0.4975 |\n  *Gen spread is 0.50\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6672 |     0.5314 |  -0.1358 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.566).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_048.png"
+    },
+    {
+      "script_idx": 49,
+      "score": 0.5133503346140446,
+      "visits": 1,
+      "parent": 39,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5134  |  ED (unbiased): 0.142198  |  ED_eff: 0.142198  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4866 |     0.0000 |  -0.4866 |\n  *ED_unbiased = 0.142198 (eff = 0.142198).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6928 |     0.7343 |  +0.0415 |\n  *Generated embeddings are +0.042 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5662 |     1.0000 |  +0.4338 |\n  *Gen spread is 0.57\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6093 |     0.5314 |  -0.0779 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.513).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_049.png"
+    },
+    {
+      "script_idx": 50,
+      "score": 0.5081057359051127,
+      "visits": 1,
+      "parent": 39,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5081  |  ED (unbiased): 0.145214  |  ED_eff: 0.145214  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4919 |     0.0000 |  -0.4919 |\n  *ED_unbiased = 0.145214 (eff = 0.145214).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7058 |     0.7343 |  +0.0285 |\n  *Generated embeddings are +0.028 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6545 |     1.0000 |  +0.3455 |\n  *Gen spread is 0.65\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6326 |     0.5314 |  -0.1012 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.508).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_050.png"
+    },
+    {
+      "script_idx": 51,
+      "score": 0.6510625533587819,
+      "visits": 50,
+      "parent": 39,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.6511  |  ED (unbiased): 0.080393  |  ED_eff: 0.080393  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.3489 |     0.0000 |  -0.3489 |\n  *ED_unbiased = 0.080393 (eff = 0.080393).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7395 |     0.7343 |  -0.0052 |\n  *Generated embeddings are -0.005 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5382 |     1.0000 |  +0.4618 |\n  *Gen spread is 0.54\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6209 |     0.5314 |  -0.0895 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.651).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_051.png"
+    },
+    {
+      "script_idx": 52,
+      "score": 0.6010965295498064,
+      "visits": 1,
+      "parent": 51,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.6011  |  ED (unbiased): 0.099544  |  ED_eff: 0.099544  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.3989 |     0.0000 |  -0.3989 |\n  *ED_unbiased = 0.099544 (eff = 0.099544).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7146 |     0.7343 |  +0.0197 |\n  *Generated embeddings are +0.020 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6299 |     1.0000 |  +0.3701 |\n  *Gen spread is 0.63\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6026 |     0.5314 |  -0.0712 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.601).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_052.png"
+    },
+    {
+      "script_idx": 53,
+      "score": 0.6163805718664023,
+      "visits": 3,
+      "parent": 51,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.6164  |  ED (unbiased): 0.093356  |  ED_eff: 0.093356  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.3836 |     0.0000 |  -0.3836 |\n  *ED_unbiased = 0.093356 (eff = 0.093356).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7184 |     0.7343 |  +0.0159 |\n  *Generated embeddings are +0.016 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5927 |     1.0000 |  +0.4073 |\n  *Gen spread is 0.59\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6022 |     0.5314 |  -0.0708 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.616).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_053.png"
+    },
+    {
+      "script_idx": 54,
+      "score": 0.4739071873426783,
+      "visits": 1,
+      "parent": 51,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4739  |  ED (unbiased): 0.166518  |  ED_eff: 0.166518  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5261 |     0.0000 |  -0.5261 |\n  *ED_unbiased = 0.166518 (eff = 0.166518).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6694 |     0.7343 |  +0.0649 |\n  *Generated embeddings are +0.065 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6513 |     1.0000 |  +0.3487 |\n  *Gen spread is 0.65\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5930 |     0.5314 |  -0.0616 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.474).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_054.png"
+    },
+    {
+      "script_idx": 55,
+      "score": 0.5170130932582068,
+      "visits": 1,
+      "parent": 53,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5170  |  ED (unbiased): 0.140128  |  ED_eff: 0.140128  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4830 |     0.0000 |  -0.4830 |\n  *ED_unbiased = 0.140128 (eff = 0.140128).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6725 |     0.7343 |  +0.0618 |\n  *Generated embeddings are +0.062 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6636 |     1.0000 |  +0.3364 |\n  *Gen spread is 0.66\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5762 |     0.5314 |  -0.0448 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.517).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_055.png"
+    },
+    {
+      "script_idx": 56,
+      "score": 0.5689097343386491,
+      "visits": 1,
+      "parent": 51,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5689  |  ED (unbiased): 0.113662  |  ED_eff: 0.113662  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4311 |     0.0000 |  -0.4311 |\n  *ED_unbiased = 0.113662 (eff = 0.113662).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7180 |     0.7343 |  +0.0163 |\n  *Generated embeddings are +0.016 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5809 |     1.0000 |  +0.4191 |\n  *Gen spread is 0.58\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6197 |     0.5314 |  -0.0883 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.569).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_056.png"
+    },
+    {
+      "script_idx": 57,
+      "score": 0.5137988220496246,
+      "visits": 1,
+      "parent": 51,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5138  |  ED (unbiased): 0.141943  |  ED_eff: 0.141943  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4862 |     0.0000 |  -0.4862 |\n  *ED_unbiased = 0.141943 (eff = 0.141943).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6915 |     0.7343 |  +0.0428 |\n  *Generated embeddings are +0.043 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7038 |     1.0000 |  +0.2962 |\n  *Gen spread is 0.70\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6043 |     0.5314 |  -0.0729 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.514).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_057.png"
+    },
+    {
+      "script_idx": 58,
+      "score": 0.581864319884161,
+      "visits": 1,
+      "parent": 51,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5819  |  ED (unbiased): 0.107792  |  ED_eff: 0.107792  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4181 |     0.0000 |  -0.4181 |\n  *ED_unbiased = 0.107792 (eff = 0.107792).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7068 |     0.7343 |  +0.0275 |\n  *Generated embeddings are +0.028 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5909 |     1.0000 |  +0.4091 |\n  *Gen spread is 0.59\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5967 |     0.5314 |  -0.0653 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.582).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_058.png"
+    },
+    {
+      "script_idx": 59,
+      "score": 0.41277552425012143,
+      "visits": 1,
+      "parent": 51,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4128  |  ED (unbiased): 0.213394  |  ED_eff: 0.213394  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5872 |     0.0000 |  -0.5872 |\n  *ED_unbiased = 0.213394 (eff = 0.213394).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6653 |     0.7343 |  +0.0690 |\n  *Generated embeddings are +0.069 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6307 |     1.0000 |  +0.3693 |\n  *Gen spread is 0.63\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6316 |     0.5314 |  -0.1002 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.413).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_059.png"
+    },
+    {
+      "script_idx": 60,
+      "score": 0.4961088875868679,
+      "visits": 1,
+      "parent": 53,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4961  |  ED (unbiased): 0.152353  |  ED_eff: 0.152353  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5039 |     0.0000 |  -0.5039 |\n  *ED_unbiased = 0.152353 (eff = 0.152353).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7323 |     0.7343 |  +0.0020 |\n  *Generated embeddings are +0.002 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6473 |     1.0000 |  +0.3527 |\n  *Gen spread is 0.65\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6676 |     0.5314 |  -0.1362 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.496).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_060.png"
+    },
+    {
+      "script_idx": 61,
+      "score": 0.48476899788115607,
+      "visits": 1,
+      "parent": 51,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4848  |  ED (unbiased): 0.159426  |  ED_eff: 0.159426  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5152 |     0.0000 |  -0.5152 |\n  *ED_unbiased = 0.159426 (eff = 0.159426).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6726 |     0.7343 |  +0.0617 |\n  *Generated embeddings are +0.062 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6169 |     1.0000 |  +0.3831 |\n  *Gen spread is 0.62\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5936 |     0.5314 |  -0.0622 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.485).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_061.png"
+    },
+    {
+      "script_idx": 62,
+      "score": 0.63571429077804,
+      "visits": 4,
+      "parent": 51,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.6357  |  ED (unbiased): 0.085955  |  ED_eff: 0.085955  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.3643 |     0.0000 |  -0.3643 |\n  *ED_unbiased = 0.085955 (eff = 0.085955).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7033 |     0.7343 |  +0.0310 |\n  *Generated embeddings are +0.031 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6110 |     1.0000 |  +0.3890 |\n  *Gen spread is 0.61\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5721 |     0.5314 |  -0.0407 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.636).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_062.png"
+    },
+    {
+      "script_idx": 63,
+      "score": 0.6263292804335261,
+      "visits": 2,
+      "parent": 62,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.6263  |  ED (unbiased): 0.089491  |  ED_eff: 0.089491  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.3737 |     0.0000 |  -0.3737 |\n  *ED_unbiased = 0.089491 (eff = 0.089491).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7038 |     0.7343 |  +0.0306 |\n  *Generated embeddings are +0.031 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5776 |     1.0000 |  +0.4224 |\n  *Gen spread is 0.58\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5749 |     0.5314 |  -0.0435 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.626).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_063.png"
+    },
+    {
+      "script_idx": 64,
+      "score": 0.6125455564480914,
+      "visits": 1,
+      "parent": 62,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.6125  |  ED (unbiased): 0.094880  |  ED_eff: 0.094880  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.3875 |     0.0000 |  -0.3875 |\n  *ED_unbiased = 0.094880 (eff = 0.094880).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7096 |     0.7343 |  +0.0247 |\n  *Generated embeddings are +0.025 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6854 |     1.0000 |  +0.3146 |\n  *Gen spread is 0.69\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5891 |     0.5314 |  -0.0577 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.613).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_064.png"
+    },
+    {
+      "script_idx": 65,
+      "score": 0.5026240296094402,
+      "visits": 1,
+      "parent": 51,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5026  |  ED (unbiased): 0.148434  |  ED_eff: 0.148434  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4974 |     0.0000 |  -0.4974 |\n  *ED_unbiased = 0.148434 (eff = 0.148434).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6953 |     0.7343 |  +0.0390 |\n  *Generated embeddings are +0.039 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7426 |     1.0000 |  +0.2574 |\n  *Gen spread is 0.74\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6144 |     0.5314 |  -0.0830 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.503).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_065.png"
+    },
+    {
+      "script_idx": 66,
+      "score": 0.5147423708359828,
+      "visits": 1,
+      "parent": 63,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5147  |  ED (unbiased): 0.141408  |  ED_eff: 0.141408  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4853 |     0.0000 |  -0.4853 |\n  *ED_unbiased = 0.141408 (eff = 0.141408).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6968 |     0.7343 |  +0.0375 |\n  *Generated embeddings are +0.038 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6789 |     1.0000 |  +0.3211 |\n  *Gen spread is 0.68\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6099 |     0.5314 |  -0.0785 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.515).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_066.png"
+    },
+    {
+      "script_idx": 67,
+      "score": 0.3794691234797407,
+      "visits": 1,
+      "parent": 51,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.3795  |  ED (unbiased): 0.245289  |  ED_eff: 0.245289  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.6205 |     0.0000 |  -0.6205 |\n  *ED_unbiased = 0.245289 (eff = 0.245289).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6556 |     0.7343 |  +0.0787 |\n  *Generated embeddings are +0.079 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6245 |     1.0000 |  +0.3755 |\n  *Gen spread is 0.62\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6445 |     0.5314 |  -0.1131 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.379).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_067.png"
+    },
+    {
+      "script_idx": 68,
+      "score": 0.42543120817428914,
+      "visits": 1,
+      "parent": 51,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4254  |  ED (unbiased): 0.202583  |  ED_eff: 0.202583  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5746 |     0.0000 |  -0.5746 |\n  *ED_unbiased = 0.202583 (eff = 0.202583).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6631 |     0.7343 |  +0.0712 |\n  *Generated embeddings are +0.071 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6505 |     1.0000 |  +0.3495 |\n  *Gen spread is 0.65\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6176 |     0.5314 |  -0.0862 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.425).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_068.png"
+    },
+    {
+      "script_idx": 69,
+      "score": 0.6482106523097948,
+      "visits": 32,
+      "parent": 51,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.6482  |  ED (unbiased): 0.081406  |  ED_eff: 0.081406  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.3518 |     0.0000 |  -0.3518 |\n  *ED_unbiased = 0.081406 (eff = 0.081406).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6949 |     0.7343 |  +0.0394 |\n  *Generated embeddings are +0.039 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6806 |     1.0000 |  +0.3194 |\n  *Gen spread is 0.68\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5572 |     0.5314 |  -0.0258 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.648).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_069.png"
+    },
+    {
+      "script_idx": 70,
+      "score": 0.5953948616669471,
+      "visits": 1,
+      "parent": 69,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5954  |  ED (unbiased): 0.101934  |  ED_eff: 0.101934  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4046 |     0.0000 |  -0.4046 |\n  *ED_unbiased = 0.101934 (eff = 0.101934).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7165 |     0.7343 |  +0.0178 |\n  *Generated embeddings are +0.018 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6604 |     1.0000 |  +0.3396 |\n  *Gen spread is 0.66\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6069 |     0.5314 |  -0.0755 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.595).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_070.png"
+    },
+    {
+      "script_idx": 71,
+      "score": 0.6217438986364879,
+      "visits": 1,
+      "parent": 69,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.6217  |  ED (unbiased): 0.091257  |  ED_eff: 0.091257  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.3783 |     0.0000 |  -0.3783 |\n  *ED_unbiased = 0.091257 (eff = 0.091257).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7213 |     0.7343 |  +0.0130 |\n  *Generated embeddings are +0.013 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7407 |     1.0000 |  +0.2593 |\n  *Gen spread is 0.74\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6017 |     0.5314 |  -0.0703 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.622).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_071.png"
+    },
+    {
+      "script_idx": 72,
+      "score": 0.6525089176820943,
+      "visits": 29,
+      "parent": 69,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.6525  |  ED (unbiased): 0.079882  |  ED_eff: 0.079882  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.3475 |     0.0000 |  -0.3475 |\n  *ED_unbiased = 0.079882 (eff = 0.079882).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7064 |     0.7343 |  +0.0279 |\n  *Generated embeddings are +0.028 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6076 |     1.0000 |  +0.3924 |\n  *Gen spread is 0.61\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5716 |     0.5314 |  -0.0402 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.653).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_072.png"
+    },
+    {
+      "script_idx": 73,
+      "score": 0.44091655292741105,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4409  |  ED (unbiased): 0.190200  |  ED_eff: 0.190200  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5591 |     0.0000 |  -0.5591 |\n  *ED_unbiased = 0.190200 (eff = 0.190200).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6741 |     0.7343 |  +0.0602 |\n  *Generated embeddings are +0.060 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6196 |     1.0000 |  +0.3804 |\n  *Gen spread is 0.62\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6198 |     0.5314 |  -0.0884 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.441).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_073.png"
+    },
+    {
+      "script_idx": 74,
+      "score": 0.5360969517635978,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5361  |  ED (unbiased): 0.129800  |  ED_eff: 0.129800  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4639 |     0.0000 |  -0.4639 |\n  *ED_unbiased = 0.129800 (eff = 0.129800).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7352 |     0.7343 |  -0.0009 |\n  *Generated embeddings are -0.001 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6990 |     1.0000 |  +0.3010 |\n  *Gen spread is 0.70\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6472 |     0.5314 |  -0.1158 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.536).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_074.png"
+    },
+    {
+      "script_idx": 75,
+      "score": 0.4808790221901215,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4809  |  ED (unbiased): 0.161929  |  ED_eff: 0.161929  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5191 |     0.0000 |  -0.5191 |\n  *ED_unbiased = 0.161929 (eff = 0.161929).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6805 |     0.7343 |  +0.0538 |\n  *Generated embeddings are +0.054 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5939 |     1.0000 |  +0.4061 |\n  *Gen spread is 0.59\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6061 |     0.5314 |  -0.0747 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.481).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_075.png"
+    },
+    {
+      "script_idx": 76,
+      "score": 0.5275882414717213,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5276  |  ED (unbiased): 0.134313  |  ED_eff: 0.134313  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4724 |     0.0000 |  -0.4724 |\n  *ED_unbiased = 0.134313 (eff = 0.134313).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6937 |     0.7343 |  +0.0406 |\n  *Generated embeddings are +0.041 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6614 |     1.0000 |  +0.3386 |\n  *Gen spread is 0.66\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5994 |     0.5314 |  -0.0680 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.528).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_076.png"
+    },
+    {
+      "script_idx": 77,
+      "score": 0.5215594724238527,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5216  |  ED (unbiased): 0.137599  |  ED_eff: 0.137599  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4784 |     0.0000 |  -0.4784 |\n  *ED_unbiased = 0.137599 (eff = 0.137599).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6965 |     0.7343 |  +0.0378 |\n  *Generated embeddings are +0.038 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6642 |     1.0000 |  +0.3358 |\n  *Gen spread is 0.66\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6048 |     0.5314 |  -0.0734 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.522).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_077.png"
+    },
+    {
+      "script_idx": 78,
+      "score": 0.5964028374966949,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5964  |  ED (unbiased): 0.101508  |  ED_eff: 0.101508  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4036 |     0.0000 |  -0.4036 |\n  *ED_unbiased = 0.101508 (eff = 0.101508).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6711 |     0.7343 |  +0.0632 |\n  *Generated embeddings are +0.063 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6580 |     1.0000 |  +0.3420 |\n  *Gen spread is 0.66\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5379 |     0.5314 |  -0.0065 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.596).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_078.png"
+    },
+    {
+      "script_idx": 79,
+      "score": 0.5293543460225333,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5294  |  ED (unbiased): 0.133364  |  ED_eff: 0.133364  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4706 |     0.0000 |  -0.4706 |\n  *ED_unbiased = 0.133364 (eff = 0.133364).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6890 |     0.7343 |  +0.0453 |\n  *Generated embeddings are +0.045 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6109 |     1.0000 |  +0.3891 |\n  *Gen spread is 0.61\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5913 |     0.5314 |  -0.0599 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.529).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_079.png"
+    },
+    {
+      "script_idx": 80,
+      "score": 0.5674982192219362,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5675  |  ED (unbiased): 0.114318  |  ED_eff: 0.114318  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4325 |     0.0000 |  -0.4325 |\n  *ED_unbiased = 0.114318 (eff = 0.114318).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6963 |     0.7343 |  +0.0380 |\n  *Generated embeddings are +0.038 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6873 |     1.0000 |  +0.3127 |\n  *Gen spread is 0.69\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5865 |     0.5314 |  -0.0551 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.567).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_080.png"
+    },
+    {
+      "script_idx": 81,
+      "score": 0.48446434220518203,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4845  |  ED (unbiased): 0.159620  |  ED_eff: 0.159620  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5155 |     0.0000 |  -0.5155 |\n  *ED_unbiased = 0.159620 (eff = 0.159620).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7101 |     0.7343 |  +0.0242 |\n  *Generated embeddings are +0.024 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6410 |     1.0000 |  +0.3590 |\n  *Gen spread is 0.64\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6378 |     0.5314 |  -0.1064 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.484).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_081.png"
+    },
+    {
+      "script_idx": 82,
+      "score": 0.4425044447523428,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4425  |  ED (unbiased): 0.188980  |  ED_eff: 0.188980  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5575 |     0.0000 |  -0.5575 |\n  *ED_unbiased = 0.188980 (eff = 0.188980).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7004 |     0.7343 |  +0.0339 |\n  *Generated embeddings are +0.034 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6253 |     1.0000 |  +0.3747 |\n  *Gen spread is 0.63\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6520 |     0.5314 |  -0.1206 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.443).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_082.png"
+    },
+    {
+      "script_idx": 83,
+      "score": 0.5157139638633417,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5157  |  ED (unbiased): 0.140859  |  ED_eff: 0.140859  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4843 |     0.0000 |  -0.4843 |\n  *ED_unbiased = 0.140859 (eff = 0.140859).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7046 |     0.7343 |  +0.0297 |\n  *Generated embeddings are +0.030 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5947 |     1.0000 |  +0.4053 |\n  *Gen spread is 0.59\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6180 |     0.5314 |  -0.0866 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.516).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_083.png"
+    },
+    {
+      "script_idx": 84,
+      "score": 0.5106090016269333,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5106  |  ED (unbiased): 0.143767  |  ED_eff: 0.143767  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4894 |     0.0000 |  -0.4894 |\n  *ED_unbiased = 0.143767 (eff = 0.143767).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6564 |     0.7343 |  +0.0780 |\n  *Generated embeddings are +0.078 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6335 |     1.0000 |  +0.3665 |\n  *Gen spread is 0.63\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5566 |     0.5314 |  -0.0252 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.511).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_084.png"
+    },
+    {
+      "script_idx": 85,
+      "score": 0.4194894761545714,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4195  |  ED (unbiased): 0.207578  |  ED_eff: 0.207578  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5805 |     0.0000 |  -0.5805 |\n  *ED_unbiased = 0.207578 (eff = 0.207578).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6591 |     0.7343 |  +0.0753 |\n  *Generated embeddings are +0.075 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5977 |     1.0000 |  +0.4023 |\n  *Gen spread is 0.60\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6156 |     0.5314 |  -0.0842 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.419).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_085.png"
+    },
+    {
+      "script_idx": 86,
+      "score": 0.5160761924497052,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5161  |  ED (unbiased): 0.140655  |  ED_eff: 0.140655  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4839 |     0.0000 |  -0.4839 |\n  *ED_unbiased = 0.140655 (eff = 0.140655).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6677 |     0.7343 |  +0.0666 |\n  *Generated embeddings are +0.067 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6998 |     1.0000 |  +0.3002 |\n  *Gen spread is 0.70\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5725 |     0.5314 |  -0.0411 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.516).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_086.png"
+    },
+    {
+      "script_idx": 87,
+      "score": 0.5607354103516698,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5607  |  ED (unbiased): 0.117506  |  ED_eff: 0.117506  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4393 |     0.0000 |  -0.4393 |\n  *ED_unbiased = 0.117506 (eff = 0.117506).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7072 |     0.7343 |  +0.0271 |\n  *Generated embeddings are +0.027 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7653 |     1.0000 |  +0.2347 |\n  *Gen spread is 0.77\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5986 |     0.5314 |  -0.0672 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.561).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_087.png"
+    },
+    {
+      "script_idx": 88,
+      "score": 0.5167905863597005,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5168  |  ED (unbiased): 0.140253  |  ED_eff: 0.140253  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4832 |     0.0000 |  -0.4832 |\n  *ED_unbiased = 0.140253 (eff = 0.140253).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6842 |     0.7343 |  +0.0501 |\n  *Generated embeddings are +0.050 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7008 |     1.0000 |  +0.2992 |\n  *Gen spread is 0.70\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5927 |     0.5314 |  -0.0613 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.517).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_088.png"
+    },
+    {
+      "script_idx": 89,
+      "score": 0.5112719180650932,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5113  |  ED (unbiased): 0.143386  |  ED_eff: 0.143386  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4887 |     0.0000 |  -0.4887 |\n  *ED_unbiased = 0.143386 (eff = 0.143386).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6932 |     0.7343 |  +0.0411 |\n  *Generated embeddings are +0.041 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6176 |     1.0000 |  +0.3824 |\n  *Gen spread is 0.62\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6057 |     0.5314 |  -0.0743 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.511).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_089.png"
+    },
+    {
+      "script_idx": 90,
+      "score": 0.5406254709415772,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5406  |  ED (unbiased): 0.127456  |  ED_eff: 0.127456  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4594 |     0.0000 |  -0.4594 |\n  *ED_unbiased = 0.127456 (eff = 0.127456).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7002 |     0.7343 |  +0.0341 |\n  *Generated embeddings are +0.034 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7151 |     1.0000 |  +0.2849 |\n  *Gen spread is 0.72\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6025 |     0.5314 |  -0.0711 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.541).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_090.png"
+    },
+    {
+      "script_idx": 91,
+      "score": 0.46879564231511267,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4688  |  ED (unbiased): 0.169969  |  ED_eff: 0.169969  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5312 |     0.0000 |  -0.5312 |\n  *ED_unbiased = 0.169969 (eff = 0.169969).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6724 |     0.7343 |  +0.0619 |\n  *Generated embeddings are +0.062 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7065 |     1.0000 |  +0.2935 |\n  *Gen spread is 0.71\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5945 |     0.5314 |  -0.0631 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.469).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_091.png"
+    },
+    {
+      "script_idx": 92,
+      "score": 0.5030332197090169,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5030  |  ED (unbiased): 0.148191  |  ED_eff: 0.148191  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4970 |     0.0000 |  -0.4970 |\n  *ED_unbiased = 0.148191 (eff = 0.148191).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6767 |     0.7343 |  +0.0576 |\n  *Generated embeddings are +0.058 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6321 |     1.0000 |  +0.3679 |\n  *Gen spread is 0.63\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5890 |     0.5314 |  -0.0576 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.503).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_092.png"
+    },
+    {
+      "script_idx": 93,
+      "score": 0.42935777755435384,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4294  |  ED (unbiased): 0.199359  |  ED_eff: 0.199359  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5706 |     0.0000 |  -0.5706 |\n  *ED_unbiased = 0.199359 (eff = 0.199359).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6713 |     0.7343 |  +0.0630 |\n  *Generated embeddings are +0.063 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5058 |     1.0000 |  +0.4942 |\n  *Gen spread is 0.51\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6237 |     0.5314 |  -0.0923 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.429).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_093.png"
+    },
+    {
+      "script_idx": 94,
+      "score": 0.512341015823319,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5123  |  ED (unbiased): 0.142774  |  ED_eff: 0.142774  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4877 |     0.0000 |  -0.4877 |\n  *ED_unbiased = 0.142774 (eff = 0.142774).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6645 |     0.7343 |  +0.0699 |\n  *Generated embeddings are +0.070 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6341 |     1.0000 |  +0.3659 |\n  *Gen spread is 0.63\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5656 |     0.5314 |  -0.0342 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.512).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_094.png"
+    },
+    {
+      "script_idx": 95,
+      "score": 0.5135797577648665,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5136  |  ED (unbiased): 0.142068  |  ED_eff: 0.142068  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4864 |     0.0000 |  -0.4864 |\n  *ED_unbiased = 0.142068 (eff = 0.142068).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6824 |     0.7343 |  +0.0519 |\n  *Generated embeddings are +0.052 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.5522 |     1.0000 |  +0.4478 |\n  *Gen spread is 0.55\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5903 |     0.5314 |  -0.0589 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.514).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_095.png"
+    },
+    {
+      "script_idx": 96,
+      "score": 0.4562114790702963,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4562  |  ED (unbiased): 0.178795  |  ED_eff: 0.178795  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5438 |     0.0000 |  -0.5438 |\n  *ED_unbiased = 0.178795 (eff = 0.178795).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6980 |     0.7343 |  +0.0364 |\n  *Generated embeddings are +0.036 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.7649 |     1.0000 |  +0.2351 |\n  *Gen spread is 0.76\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6346 |     0.5314 |  -0.1032 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.456).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_096.png"
+    },
+    {
+      "script_idx": 97,
+      "score": 0.4687654531436883,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4688  |  ED (unbiased): 0.169989  |  ED_eff: 0.169989  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5312 |     0.0000 |  -0.5312 |\n  *ED_unbiased = 0.169989 (eff = 0.169989).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6842 |     0.7343 |  +0.0501 |\n  *Generated embeddings are +0.050 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.8195 |     1.0000 |  +0.1805 |\n  *Gen spread is 0.82\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6110 |     0.5314 |  -0.0795 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.469).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_097.png"
+    },
+    {
+      "script_idx": 98,
+      "score": 0.5080019802051469,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5080  |  ED (unbiased): 0.145274  |  ED_eff: 0.145274  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4920 |     0.0000 |  -0.4920 |\n  *ED_unbiased = 0.145274 (eff = 0.145274).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.7208 |     0.7343 |  +0.0135 |\n  *Generated embeddings are +0.014 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.8831 |     1.0000 |  +0.1169 |\n  *Gen spread is 0.88\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6415 |     0.5314 |  -0.1101 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.508).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_098.png"
+    },
+    {
+      "script_idx": 99,
+      "score": 0.5011949195519709,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.5012  |  ED (unbiased): 0.149285  |  ED_eff: 0.149285  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.4988 |     0.0000 |  -0.4988 |\n  *ED_unbiased = 0.149285 (eff = 0.149285).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6812 |     0.7343 |  +0.0531 |\n  *Generated embeddings are +0.053 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6196 |     1.0000 |  +0.3804 |\n  *Gen spread is 0.62\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.5952 |     0.5314 |  -0.0638 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.501).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_099.png"
+    },
+    {
+      "script_idx": 100,
+      "score": 0.44181335124940674,
+      "visits": 1,
+      "parent": 72,
+      "report": "## ECG Representation-Space Discrepancy Report (ECGFounder)\n\nSegments: 60 reference (empirical sample)  |  100 generated  |  Embedding dim: 1024\nEncoder: ECGFounder  |  Score: 0.4418  |  ED (unbiased): 0.189510  |  ED_eff: 0.189510  |  Scale: 0.1500\n\n| Feature                      |    Value |  Benchmark |      Gap |\n|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014|\n| Energy Distance (unbiased, set-to-set) |   0.5582 |     0.0000 |  -0.5582 |\n  *ED_unbiased = 0.189510 (eff = 0.189510).  Scale = 0.1500.  Score = 1/(1+ED_eff/scale).  Lower ED = more similar.*\n| Mean centroid similarity     |   0.6715 |     0.7343 |  +0.0628 |\n  *Generated embeddings are +0.063 from the reference centroid.*\n| Spread ratio (gen / ref)     |   0.6516 |     1.0000 |  +0.3484 |\n  *Gen spread is 0.65\u00d7 reference spread.*\n| Gen inter-sample similarity  |   0.6145 |     0.5314 |  -0.0831 |\n  *Reference pairwise similarity = 0.5314.  Near 1.0 indicates mode collapse.*\n\n### Observations\n- Moderate distribution discrepancy (score = 0.442).",
+      "visual_feedback_path": "[PROJECT_ROOT]/artifacts_3.1/wpw_ecg/runs/rep/seed2/visual/node_100.png"
+    }
+  ],
+  "search_algorithm": "era_rank_flat_puct"
+}

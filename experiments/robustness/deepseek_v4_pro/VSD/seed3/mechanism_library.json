@@ -1,0 +1,20 @@
+[
+  {
+    "name": "pink_noise_murmur_source",
+    "mechanism": "The child replaces white-noise excitation for the holosystolic murmur with frequency-domain-shaped pink noise, creating a physiological 1/f spectral roll-off that reduces excessive high-frequency energy.",
+    "code_snippet": "generate_pink_noise() applies 1/sqrt(f) magnitude shaping, and generate_murmur() uses the shaped noise with a 350 Hz iirpeak resonance.",
+    "source_node": 1,
+    "delta": 0.15,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "sos_butterworth_filtering",
+    "mechanism": "Replacing high-order Butterworth transfer-function filtfilt with second-order-section sosfiltfilt avoids numerical distortion at low normalized cutoffs and preserves the intended ventricular septal defect murmur spectrum.",
+    "code_snippet": "sos_hp = signal.butter(4, low / nyq, btype='high', output='sos'); murmur = signal.sosfiltfilt(sos_hp, colored)",
+    "source_node": 14,
+    "delta": 0.03762,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]

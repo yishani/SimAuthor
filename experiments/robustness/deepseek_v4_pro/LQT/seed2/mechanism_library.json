@@ -1,0 +1,38 @@
+[
+  {
+    "name": "narrow_qrs_duration_ranges",
+    "mechanism": "The QRS complex is narrowed to physiological 80-100 ms by reducing the Gaussian center offsets and widths for Q, R, and S waves.",
+    "code_snippet": "Tightened QRS Gaussian sigma/offsets: sigma_q 0.004-0.006, sigma_r 0.006-0.010, sigma_s 0.004-0.006, q_offset 0.010-0.016, s_offset 0.020-0.030.",
+    "source_node": 6,
+    "delta": 0.10876,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "asymmetric_t_wave_modeling",
+    "mechanism": "Each subject's T-wave is synthesized with distinct left/right Gaussian widths and anchored by its 3-sigma right tail to the QT offset, increasing physiological T-wave morphology diversity without altering QRS width.",
+    "code_snippet": "gaussian_wave_asym(t, center, sigma_left, sigma_right, amplitude)",
+    "source_node": 9,
+    "delta": 0.02598,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "subject_specific_p_qrs_variability",
+    "mechanism": "Adds per-subject physiological variation to PR interval, P-wave amplitude/width, and QRS width while constraining QRS duration to 80-100 ms, reducing mode collapse after amplitude normalization.",
+    "code_snippet": "pr_interval = np.random.uniform(0.12, 0.20); sigma_p = np.random.uniform(0.015, 0.028); p_amp_II = np.random.uniform(0.10, 0.20); q_center = -np.random.uniform(0.012, 0.020); s_center = np.random.unif",
+    "source_node": 13,
+    "delta": 0.02583,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "asymmetric_qrs_waveform_diversity",
+    "mechanism": "Replacing symmetric QRS Gaussian kernels with subject-specific asymmetric Q/R/S Gaussian kernels and broader amplitude-ratio ranges makes dominant QRS morphology more varied across subjects, reducing embedding similarity.",
+    "code_snippet": "gaussian_wave_asym(t, center, sigma_left, sigma_right, amplitude) for Q/R/S waves",
+    "source_node": 28,
+    "delta": 0.02144,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  }
+]

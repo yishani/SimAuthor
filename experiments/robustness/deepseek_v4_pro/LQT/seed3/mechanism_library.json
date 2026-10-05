@@ -1,0 +1,38 @@
+[
+  {
+    "name": "broaden_beat_to_beat_jitter",
+    "mechanism": "The child widens per-beat amplitude and width jitter ranges so each cardiac cycle has more physiologically plausible waveform diversity, reducing stereotyped morphology and improving embedding spread.",
+    "code_snippet": "r_amp_beat_II = r_amp_II * rng.uniform(0.90, 1.10)",
+    "source_node": 2,
+    "delta": 0.0757,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "component_specific_lead_ratios",
+    "mechanism": "Independent subject-level Lead I/II projection ratios are assigned to P, Q, R, S, and T waves so the two leads are no longer exact scaled copies, increasing inter-sample physiological diversity.",
+    "code_snippet": "p_lead_I_ratio, q_lead_I_ratio, r_lead_I_ratio, s_lead_I_ratio, t_lead_I_ratio",
+    "source_node": 13,
+    "delta": 0.02287,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "asymmetric_pqrs_subwave_generation",
+    "mechanism": "Replace symmetric Gaussian P, Q, R, and S subwaves with asymmetric Gaussian waveforms using component-specific skew parameters for fast upstrokes and slower recoveries, increasing morphological realism and inter-sample diversity.",
+    "code_snippet": "asymmetric_gaussian_wave(t, center, sigma_rise, sigma_fall, amplitude)",
+    "source_node": 14,
+    "delta": 0.07419,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  },
+  {
+    "name": "tighten_qrs_duration_constraints",
+    "mechanism": "Narrowing synthetic QRS duration into the normal 80-100 ms range by constraining Q/R/S subwave widths, offsets, skew ranges, and beat-to-beat jitter.",
+    "code_snippet": "qrs_dur_scale = rng.uniform(0.94, 1.04); q_offset = -0.019 * qrs_dur_scale; s_offset = 0.032 * qrs_dur_scale; r_sigma_base = rng.uniform(0.010, 0.014) * qrs_dur_scale",
+    "source_node": 20,
+    "delta": 0.03818,
+    "observation_count": 1,
+    "island": "ecg_founder_12lead"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "add_t_wave_alternans",
+    "mechanism": "Introduces beat-to-beat amplitude alternation in the T-wave to simulate T-wave alternans, a physiological marker of severe repolarization instability.",
+    "code_snippet": "twa_mod = twa_severity * (-1)**i",
+    "source_node": 1,
+    "delta": 0.05575,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "vector_projection_multilead_modeling",
+    "mechanism": "Replaces arbitrary scalar amplitude multipliers with a 2D frontal plane vector projection model that calculates lead-specific amplitudes using physiological electrical axes and trigonometric projections.",
+    "code_snippet": "m_P * np.cos(theta_P - angle_I)",
+    "source_node": 5,
+    "delta": 0.05705,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "proportional_t_wave_scaling",
+    "mechanism": "Scales T-wave component positions and widths proportionally to the available time within the QT interval rather than using fixed widths and offsets.",
+    "code_snippet": "t_avail = t_end - st_start; center_t1 = st_start + t_avail * pos1; sigma_t = t_avail * sigma_t_frac",
+    "source_node": 7,
+    "delta": 0.04928,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "constrain_electrical_axis",
+    "mechanism": "Constrains the frontal plane electrical axis to a narrower, physiological normal range to eliminate extreme amplitude outliers and ensure realistic lead dominance.",
+    "code_snippet": "theta_R = np.random.uniform(30, 70) * deg2rad",
+    "source_node": 9,
+    "delta": 0.03242,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  },
+  {
+    "name": "proportional_qrs_amplitude_scaling",
+    "mechanism": "Scales the Q and S wave amplitudes proportionally to the R wave amplitude to maintain realistic QRS complex morphology across a wider range of signal magnitudes.",
+    "code_snippet": "m_Q = np.random.uniform(0.0, 0.15) * m_R",
+    "source_node": 10,
+    "delta": 0.04524,
+    "observation_count": 1,
+    "island": "ecg_founder"
+  }
+]

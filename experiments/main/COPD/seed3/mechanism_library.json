@@ -1,0 +1,56 @@
+[
+  {
+    "name": "stochastic_respiratory_cycle_jitter",
+    "mechanism": "Replaces a fixed periodic respiratory envelope with cycle-by-cycle stochastic variation by independently sampling inspiration, expiration, and pause durations for each breath.",
+    "code_snippet": "insp_dur = np.random.normal(1.2, 0.1); exp_dur = np.random.normal(3.0, 0.3)",
+    "source_node": 1,
+    "delta": 0.37154,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "add_low_frequency_body_rumble",
+    "mechanism": "Introduces a dominant low-frequency body rumble below 100 Hz to the noise floor to simulate the acoustic environment of an electronic stethoscope and anchor the zero-crossing rate.",
+    "code_snippet": "b_r, a_r = signal.butter(2, 100, btype='lowpass', fs=SR); body_rumble = signal.filtfilt(b_r, a_r, rumble_white)",
+    "source_node": 11,
+    "delta": 0.03088,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "narrow_crackle_frequency_band",
+    "mechanism": "Lowers the upper cutoff frequency of the bandpass filter applied to crackle bursts from 1000 Hz to 500 Hz to reduce unnatural high-frequency transients.",
+    "code_snippet": "b_c, a_c = signal.butter(2, [100, 500], btype='bandpass', fs=SR)",
+    "source_node": 41,
+    "delta": 0.04027,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "dry_wet_transient_preservation",
+    "mechanism": "Mixing a bandpass-filtered signal with a fraction of the original unfiltered signal to preserve broadband transient characteristics.",
+    "code_snippet": "crackle_sound = 0.8 * crackle_filtered + 0.2 * crackle_sound",
+    "source_node": 47,
+    "delta": 0.03841,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "add_harmonics_to_oscillator",
+    "mechanism": "Adds a first harmonic to the base sine wave during signal generation to produce a more realistic, less synthetic timbre.",
+    "code_snippet": "w_sine = np.sin(2 * np.pi * phase_acc) + 0.4 * np.sin(4 * np.pi * phase_acc)",
+    "source_node": 62,
+    "delta": 0.04973,
+    "observation_count": 1,
+    "island": "mfcc"
+  },
+  {
+    "name": "enrich_wheeze_harmonics",
+    "mechanism": "Added an additional harmonic and increased the amplitude of the first harmonic to create a richer, less synthetic wheeze timbre.",
+    "code_snippet": "w_sine = (np.sin(2 * np.pi * phase_acc) + 0.3 * np.sin(4 * np.pi * phase_acc) + 0.1 * np.sin(6 * np.pi * phase_acc))",
+    "source_node": 76,
+    "delta": 0.03703,
+    "observation_count": 1,
+    "island": "mfcc"
+  }
+]
