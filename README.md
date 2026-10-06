@@ -7,7 +7,7 @@
 Yishan Wang · Ran Piao · Mathias Funk · Aaqib Saeed
 <br>Eindhoven University of Technology
 
-[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg)](https://arxiv.org/abs/XXXX.XXXXX)
+[![arXiv](https://img.shields.io/badge/arXiv-2610.06257-b31b1b.svg)](https://arxiv.org/abs/2610.06257)
 [![Project page](https://img.shields.io/badge/project-page-1d3f8a.svg)](https://yishani.github.io/SimAuthor/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
@@ -141,7 +141,7 @@ diagnostic or clinical use.
 @article{wang2026simauthor,
   title   = {{SimAuthor}: Harnessing Foundation Models for Persistent Scientific Simulator Authoring},
   author  = {Wang, Yishan and Piao, Ran and Funk, Mathias and Saeed, Aaqib},
-  journal = {arXiv preprint arXiv:XXXX.XXXXX},
+  journal = {arXiv preprint arXiv:2610.06257},
   year    = {2026}
 }
 ```

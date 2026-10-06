@@ -24,5 +24,7 @@ preferred-citation:
       given-names: Mathias
     - family-names: Saeed
       given-names: Aaqib
-  journal: "arXiv preprint"
+  journal: "arXiv preprint arXiv:2610.06257"
   year: 2026
+  doi: "10.48550/arXiv.2610.06257"
+  url: "https://arxiv.org/abs/2610.06257"
